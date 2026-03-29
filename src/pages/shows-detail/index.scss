@@ -1,0 +1,40 @@
+.detail-page { min-height: 100vh; background-color: #fff9ed; }
+
+.detail-hero { position: relative; height: 480rpx; overflow: hidden; }
+.detail-hero__image { width: 100%; height: 100%; }
+.detail-hero__overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(transparent 40%, rgba(93,0,10,0.8) 100%); }
+.detail-hero__content { position: absolute; bottom: 32rpx; left: 32rpx; right: 32rpx; }
+.detail-hero__title { font-size: 48rpx; font-weight: 700; color: #fff; font-style: italic; display: block; text-shadow: 0 4rpx 8rpx rgba(0,0,0,0.3); }
+.detail-hero__badge { display: inline-block; background-color: #81131a; border-radius: 16rpx; padding: 6rpx 20rpx; margin-top: 12rpx; }
+
+.detail-info { margin: 24rpx 32rpx; padding: 24rpx; }
+.detail-info__row { display: flex; justify-content: space-between; padding: 12rpx 0; border-bottom: 2rpx solid #ebe2c8; }
+.detail-info__row:last-child { border-bottom: none; }
+.detail-info__label { font-size: 20rpx; color: #8b716f; }
+.detail-info__value { font-size: 24rpx; color: #1f1c0b; text-align: right; }
+
+.detail-section { padding: 24rpx 32rpx; }
+.detail-section__title { font-size: 32rpx; font-weight: 700; color: #5d000a; display: block; margin-bottom: 20rpx; }
+.detail-section__text { font-size: 26rpx; color: #4c4733; line-height: 1.6; display: block; }
+
+.cast-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20rpx; }
+.cast-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.cast-item__avatar { width: 96rpx; height: 96rpx; border-radius: 48rpx; background-color: #81131a; display: flex; align-items: center; justify-content: center; margin-bottom: 8rpx; overflow: hidden; }
+.cast-item__photo { width: 100%; height: 100%; }
+.cast-item__initials { color: #fff; font-size: 24rpx; font-weight: 700; }
+.cast-item__name { font-size: 20rpx; color: #1f1c0b; display: block; }
+.cast-item__role { font-size: 18rpx; color: #8b716f; display: block; margin-top: 4rpx; }
+
+.award-item { display: flex; align-items: flex-start; padding: 12rpx 0; }
+
+.history-item { display: flex; gap: 16rpx; padding: 12rpx 0; border-bottom: 2rpx solid #ebe2c8; }
+.history-item__year { font-size: 28rpx; font-weight: 700; color: #5d000a; width: 80rpx; flex-shrink: 0; }
+.history-item__desc { font-size: 24rpx; color: #4c4733; flex: 1; }
+
+.audience-review { background-color: #f8edd9; border-radius: 16rpx; padding: 24rpx; margin-bottom: 16rpx; }
+.audience-review__stars { margin-bottom: 12rpx; }
+.audience-review__text { font-size: 24rpx; color: #4c4733; font-style: italic; display: block; margin-bottom: 16rpx; line-height: 1.5; }
+.audience-review__author { display: flex; align-items: center; gap: 12rpx; }
+.audience-review__avatar { width: 48rpx; height: 48rpx; border-radius: 24rpx; background-color: #81131a; display: flex; align-items: center; justify-content: center; }
+.audience-review__name { font-size: 22rpx; color: #1f1c0b; display: block; }
+.audience-review__date { font-size: 18rpx; color: #8b716f; display: block; }

@@ -1,0 +1,24 @@
+.review-page { min-height: 100vh; background-color: #fff9ed; }
+
+.review-act-header { padding: 48rpx 32rpx; text-align: center; }
+.review-act-header__label { font-size: 22rpx; color: #d4af37; letter-spacing: 6rpx; display: block; margin-bottom: 8rpx; }
+.review-act-header__title { font-size: 40rpx; color: #ffffff; font-style: italic; display: block; }
+
+.review-show-info { margin: 24rpx 32rpx; padding: 20rpx 24rpx; text-align: center; }
+
+.review-section { padding: 24rpx 32rpx; }
+.review-section__title { font-size: 30rpx; font-weight: 700; color: #5d000a; display: block; margin-bottom: 12rpx; }
+.review-section__desc { font-size: 24rpx; color: #8b716f; display: block; margin-bottom: 20rpx; }
+
+.playbill-upload { width: 280rpx; height: 360rpx; border: 4rpx dashed #dfbfbd; border-radius: 16rpx; margin: 0 auto; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.playbill-upload__image { width: 100%; height: 100%; }
+.playbill-upload__placeholder { display: flex; flex-direction: column; align-items: center; gap: 12rpx; }
+
+.score-slider { margin-bottom: 32rpx; }
+.score-slider__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4rpx; }
+.score-slider__label { font-size: 22rpx; color: #5d000a; }
+.score-slider__level { font-size: 20rpx; color: #d4af37; }
+.score-slider__subtitle { font-size: 20rpx; color: #8b716f; display: block; margin-bottom: 12rpx; }
+
+.review-notes { background-color: #f2e7d4; border-radius: 16rpx; padding: 24rpx; font-size: 26rpx; color: #1f1c0b; width: 100%; min-height: 200rpx; box-sizing: border-box; line-height: 1.6; }
+.review-notes__placeholder { color: #8b716f; font-style: italic; }

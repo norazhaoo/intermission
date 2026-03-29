@@ -1,0 +1,161 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* ================================
+   全局基础样式
+   ================================ */
+page {
+  background-color: #fff9ed;
+  font-family: 'Manrope', sans-serif;
+  color: #1f1c0b;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+/* ================================
+   剧院风格设计系统
+   ================================ */
+
+/* 天鹅绒渐变背景 */
+.velvet-bg {
+  background: linear-gradient(135deg, #5d000a 0%, #81131a 50%, #5d000a 100%);
+}
+
+/* 羊皮纸票卡 */
+.parchment-ticket {
+  background-color: #fcf3d8;
+  border: 2rpx solid #dfbfbd;
+  border-radius: 16rpx;
+}
+
+/* 撕裂线 */
+.perforation {
+  border-top: 4rpx dashed #dfbfbd;
+  position: relative;
+}
+
+.perforation::before,
+.perforation::after {
+  content: '';
+  position: absolute;
+  top: -16rpx;
+  width: 32rpx;
+  height: 32rpx;
+  background-color: #fff9ed;
+  border-radius: 50%;
+}
+
+.perforation::before {
+  left: -16rpx;
+}
+
+.perforation::after {
+  right: -16rpx;
+}
+
+/* 华丽相框 */
+.ornate-frame {
+  border: 3rpx solid #5d000a;
+  outline: 2rpx solid #d4af37;
+  outline-offset: -6rpx;
+  box-shadow:
+    inset 0 0 12rpx rgba(93, 0, 10, 0.2),
+    0 4rpx 12rpx rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 金色闪光动画 */
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    #d4af37 0%,
+    #fed488 25%,
+    #d4af37 50%,
+    #fed488 75%,
+    #d4af37 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* 幕布暗角 */
+.curtain-vignette {
+  position: relative;
+}
+
+.curtain-vignette-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(93, 0, 10, 0.3) 100%
+  );
+  pointer-events: none;
+}
+
+/* 剧院风格按钮 */
+.btn-theatrical {
+  background: linear-gradient(135deg, #5d000a 0%, #81131a 100%);
+  color: #ffffff;
+  border-radius: 24rpx;
+  padding: 24rpx 48rpx;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 28rpx;
+  text-align: center;
+  box-shadow:
+    inset 0 2rpx 4rpx rgba(255, 255, 255, 0.15),
+    0 4rpx 12rpx rgba(93, 0, 10, 0.3);
+  transition: transform 0.15s ease;
+}
+
+.btn-theatrical-active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+/* 金色边框按钮 */
+.btn-gold-outline {
+  border: 2rpx solid #d4af37;
+  color: #5d000a;
+  border-radius: 24rpx;
+  padding: 16rpx 32rpx;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 24rpx;
+  text-align: center;
+  background: transparent;
+}
+
+/* 滚动条隐藏 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================================
+   字体工具类
+   ================================ */
+.font-headline {
+  font-family: 'Noto Serif', serif;
+}
+
+.font-body {
+  font-family: 'Manrope', sans-serif;
+}
+
+.font-label {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2rpx;
+}

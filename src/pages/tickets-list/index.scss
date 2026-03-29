@@ -1,0 +1,14 @@
+.tickets-list-page { min-height: 100vh; background-color: #fff9ed; padding: 32rpx; }
+.tickets-section { margin-bottom: 16rpx; }
+.tickets-section__title { font-size: 36rpx; color: #5d000a; font-weight: 700; display: block; margin-bottom: 24rpx; }
+.tickets-section__empty { font-size: 24rpx; color: #8b716f; display: block; padding: 32rpx 0; }
+
+.ticket-card { margin-bottom: 24rpx; overflow: hidden; }
+.ticket-card--past { opacity: 0.65; }
+.ticket-card__header { padding: 24rpx; }
+.ticket-card__show { font-size: 30rpx; font-weight: 700; color: #5d000a; display: block; text-transform: uppercase; }
+.ticket-card__theater { font-size: 22rpx; color: #8b716f; display: block; margin-top: 8rpx; }
+.ticket-card__details { padding: 20rpx 24rpx; }
+.ticket-card__row { display: flex; justify-content: space-between; padding: 8rpx 0; }
+.ticket-card__label { font-size: 20rpx; color: #8b716f; }
+.ticket-card__value { font-size: 24rpx; color: #1f1c0b; }

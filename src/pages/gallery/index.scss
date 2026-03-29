@@ -1,0 +1,288 @@
+.gallery-page {
+  min-height: 100vh;
+  background-color: #fff9ed;
+  padding-bottom: 32rpx;
+}
+
+/* 头部 */
+.gallery-header {
+  padding: 32rpx;
+}
+
+.gallery-header__title {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #5d000a;
+  display: block;
+}
+
+.gallery-header__subtitle {
+  font-size: 24rpx;
+  color: #8b716f;
+  margin-top: 8rpx;
+  display: block;
+}
+
+/* 成就徽章 */
+.gallery-badge {
+  display: flex;
+  align-items: center;
+  background-color: #3c251f;
+  border: 2rpx solid #d4af37;
+  border-radius: 24rpx;
+  padding: 12rpx 24rpx;
+  margin-top: 24rpx;
+}
+
+.gallery-badge__icon {
+  font-size: 28rpx;
+  margin-right: 12rpx;
+}
+
+.gallery-badge__text {
+  color: #fed488;
+  font-size: 20rpx;
+}
+
+/* 搜索 */
+.gallery-search {
+  display: flex;
+  align-items: center;
+  background-color: #f2e7d4;
+  border-radius: 24rpx;
+  padding: 16rpx 24rpx;
+  margin-top: 24rpx;
+}
+
+.gallery-search__icon {
+  font-size: 32rpx;
+  margin-right: 12rpx;
+}
+
+.gallery-search__input {
+  flex: 1;
+  font-size: 26rpx;
+  color: #1f1c0b;
+}
+
+.gallery-search__placeholder {
+  color: #8b716f;
+}
+
+/* 筛选按钮 */
+.gallery-filters {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 20rpx;
+  flex-wrap: wrap;
+}
+
+.gallery-filters__btn {
+  border: 2rpx solid #dfbfbd;
+  border-radius: 32rpx;
+  padding: 8rpx 24rpx;
+  background-color: transparent;
+}
+
+.gallery-filters__btn--active {
+  background-color: #5d000a;
+  border-color: #5d000a;
+}
+
+.gallery-filters__btn--active text {
+  color: #ffffff;
+}
+
+/* 区域标题 */
+.gallery-section {
+  padding: 0 32rpx;
+  margin-top: 16rpx;
+}
+
+.gallery-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.gallery-section__title {
+  font-size: 36rpx;
+  color: #5d000a;
+  font-weight: 700;
+}
+
+/* Top 9 网格 */
+.gallery-top9 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16rpx;
+}
+
+.gallery-top9__item {
+  border-radius: 12rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-top9__poster {
+  width: 100%;
+  height: 280rpx;
+  display: block;
+}
+
+.gallery-top9__name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: #ffffff;
+  font-size: 18rpx;
+  padding: 24rpx 8rpx 8rpx;
+  text-align: center;
+}
+
+/* 完整网格 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rpx;
+}
+
+.gallery-grid__item {
+  aspect-ratio: 2/3;
+  overflow: hidden;
+  border-radius: 4rpx;
+}
+
+.gallery-grid__poster {
+  width: 100%;
+  height: 100%;
+}
+
+/* 空状态 */
+.gallery-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80rpx 48rpx;
+  text-align: center;
+}
+
+.gallery-empty__icon {
+  font-size: 96rpx;
+  margin-bottom: 24rpx;
+}
+
+.gallery-empty__title {
+  font-size: 36rpx;
+  color: #5d000a;
+  margin-bottom: 16rpx;
+}
+
+.gallery-empty__text {
+  font-size: 26rpx;
+  color: #8b716f;
+  margin-bottom: 32rpx;
+}
+
+/* 评论卡片 */
+.gallery-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.gallery-reviews-empty {
+  padding: 32rpx;
+  text-align: center;
+}
+
+.review-card {
+  display: flex;
+  background-color: #f8edd9;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  gap: 20rpx;
+}
+
+.review-card__left {
+  flex-shrink: 0;
+}
+
+.review-card__poster-frame {
+  width: 100rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.review-card__poster {
+  width: 100%;
+  height: 100%;
+}
+
+.review-card__poster-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ece2ce;
+  font-size: 36rpx;
+}
+
+.review-card__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card__date {
+  font-size: 20rpx;
+  color: #8b716f;
+  margin-bottom: 8rpx;
+}
+
+.review-card__quote {
+  font-size: 24rpx;
+  color: #4c4733;
+  font-style: italic;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.review-card__tag {
+  align-self: flex-start;
+  background-color: #ffdea5;
+  border-radius: 16rpx;
+  padding: 4rpx 16rpx;
+  margin-top: 12rpx;
+}
+
+.review-card__tag text {
+  font-size: 18rpx;
+  color: #5d000a;
+}
+
+/* CTA 卡片 */
+.gallery-cta {
+  margin: 32rpx;
+  padding: 32rpx;
+  text-align: center;
+}
+
+.gallery-cta__title {
+  font-size: 32rpx;
+  color: #5d000a;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.gallery-cta__text {
+  font-size: 24rpx;
+  color: #8b716f;
+  display: block;
+}

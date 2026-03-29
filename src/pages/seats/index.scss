@@ -1,0 +1,6 @@
+.seats-page { min-height: 100vh; background-color: #fff9ed; display: flex; align-items: center; justify-content: center; }
+.seats-content { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 64rpx; }
+.seats-content__icon { font-size: 128rpx; margin-bottom: 32rpx; }
+.seats-content__title { font-size: 48rpx; color: #5d000a; font-weight: 700; display: block; margin-bottom: 16rpx; }
+.seats-content__text { font-size: 26rpx; color: #8b716f; display: block; max-width: 500rpx; line-height: 1.5; }
+.seats-content__ornament { margin-top: 48rpx; }

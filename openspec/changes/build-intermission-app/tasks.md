@@ -1,96 +1,102 @@
 ## 1. 项目初始化
 
-- [ ] 1.1 使用 `npx create-vite@latest ./ --template react` 初始化 Vite + React 项目
-- [ ] 1.2 安装依赖：react-router-dom、tailwindcss、postcss、autoprefixer
-- [ ] 1.3 配置 `tailwind.config.js`，包含所有 Material Design 3 颜色令牌、字体族（headline、body、label）和 mockup 主题中的圆角值
-- [ ] 1.4 建立项目目录结构：`src/components/`、`src/features/`、`src/lib/`、`src/styles/`
-- [ ] 1.5 配置 React Router，定义 design.md 中的所有路由
+- [x] 1.1 使用 `npx @tarojs/cli init` 初始化 Taro 项目（选择 React + TypeScript + SCSS + Webpack5）
+- [x] 1.2 安装样式依赖：`tailwindcss`、`postcss`、`autoprefixer`、`weapp-tailwindcss`
+- [x] 1.3 配置 `postcss.config.js` 启用 Tailwind PostCSS 插件
+- [x] 1.4 配置 `tailwind.config.js`：设置 `content` 路径、关闭 `preflight`、添加所有 M3 颜色令牌、字体族（headline/body/label）和圆角值
+- [x] 1.5 在 `config/index.ts` 中注册 `UnifiedWebpackPluginV5`（weapp-tailwindcss Webpack 插件）
+- [x] 1.6 在 `package.json` 的 `postinstall` 脚本中添加 `weapp-tw patch`
+- [x] 1.7 配置 `app.scss` 全局样式，添加 `@import "weapp-tailwindcss"` 引入
+- [x] 1.8 配置 `app.config.ts`：定义所有 pages 路径、tabBar（custom: true）、window 默认样式
 
 ## 2. 设计系统与共享样式
 
-- [ ] 2.1 在 `index.html` 中添加 Google Fonts 导入（Noto Serif、Manrope）和 Material Symbols Outlined
-- [ ] 2.2 在 `index.css` 中实现全局 CSS 样式：`.velvet-bg`（渐变 + 纹理叠加）、`.parchment-ticket`、`.perforation`、`.ornate-frame`（含悬停缩放）、`.shimmer-gold`、`.curtain-vignette`
-- [ ] 2.3 实现剧院风格按钮样式（`.bg-theatrical-gradient`、`.btn-glow`）和 scrollbar-hide 工具类
-- [ ] 2.4 添加 Material Symbols font-variation-settings 默认值
+- [x] 2.1 在 `app.tsx` 的 `onLaunch` 中通过 `Taro.loadFontFace` 加载 Noto Serif 和 Manrope 字体，设置 CSS fallback
+- [x] 2.2 准备图标方案：在 iconfont.cn 创建项目，导入 mockup 中约 30 个 Material Symbols 图标，生成 iconfont 文件并引入项目
+- [x] 2.3 创建 `Icon` 组件：封装 iconfont 渲染，支持 `name`、`size`、`color` 属性
+- [x] 2.4 在全局 SCSS 中实现剧院风格类：`.velvet-bg`（渐变背景）、`.parchment-ticket`（羊皮纸背景）、`.perforation`（虚线撕裂）、`.ornate-frame`（多层边框阴影）、`.shimmer-gold`（金色闪光）
+- [x] 2.5 实现 `.btn-theatrical`（天鹅绒渐变按钮 + 点击缩放）和 scrollbar 隐藏工具类
 
 ## 3. 应用外壳组件
 
-- [ ] 3.1 创建 `BottomNav` 组件，包含 5 个标签页（画廊、票务、座位、剧目、日历），使用 React Router NavLink 实现激活状态高亮
-- [ ] 3.2 创建 `TopAppBar` 组件，包含汉堡图标、"The Playbill" 标题和用户头像
-- [ ] 3.3 创建 `SubPageTopBar` 子页面变体组件，包含关闭/返回按钮和自定义标题
-- [ ] 3.4 创建 `AppShell` 布局组件，用 TopAppBar 和 BottomNav 包裹页面
-- [ ] 3.5 创建 `LoadingScreen` 组件，包含幕布背景、"Intermission" 标题、闪光进度条和 2 秒后自动跳转
-- [ ] 3.6 创建共享 `CurtainDivider` 组件（两条线 + 居中图标）
+- [x] 3.1 创建 `src/custom-tab-bar/index.tsx`：5 个标签页（画廊、票务、座位、剧目、日历），使用 `Taro.switchTab` 切换，支持激活态高亮（金色背景 + 填充图标）
+- [x] 3.2 创建 `src/custom-tab-bar/index.scss`：自定义 TabBar 样式，与 mockup 底部导航一致
+- [x] 3.3 在每个 Tab 页面的 `useDidShow` 中通过 `Taro.getTabBar()?.setSelected(index)` 同步 TabBar 状态
+- [x] 3.4 创建共享 `CurtainDivider` 组件（`View` + `Icon` 组件渲染两条线和居中图标）
+- [x] 3.5 创建启动屏幕页面 `pages/loading/index.tsx`：幕布背景图、"Intermission" 标题、金色进度条，1 秒后通过 `Taro.switchTab` 跳转到画廊
 
 ## 4. 数据层
 
-- [ ] 4.1 创建 `src/lib/store.js`，localStorage 抽象层（按 key 的 get、set、remove，带 JSON 序列化）
-- [ ] 4.2 创建 `src/lib/data.js`，种子数据：9+ 预置音乐剧（歌剧魅影、汉密尔顿、魔法坏女巫、悲惨世界、狮子王、芝加哥、吉屋出租、哈迪斯城、猫），包含标题、作曲家和占位海报 URL
-- [ ] 4.3 定义数据模型（TypeScript 风格 JSDoc 注释）：Show、Ticket、Review
-- [ ] 4.4 创建 React context 或自定义 hooks 实现数据访问：`useShows()`、`useTickets()`、`useReviews()`
+- [x] 4.1 创建 `src/lib/store.ts`：Taro Storage 抽象层（封装 `getStorageSync`/`setStorageSync`，支持按 key 读写 JSON 数据）
+- [x] 4.2 创建 `src/lib/types.ts`：定义 TypeScript 接口：`Show`、`Ticket`、`Review`
+- [x] 4.3 创建 `src/lib/data.ts`：种子数据——9+ 预置音乐剧（歌剧魅影、汉密尔顿、魔法坏女巫、悲惨世界、狮子王、芝加哥、吉屋出租、哈迪斯城、猫），包含标题、作曲家和海报 URL
+- [x] 4.4 在 `app.tsx` 的 `onLaunch` 中检测首次启动，自动写入种子数据到 Storage
+- [x] 4.5 创建自定义 React Hooks：`useShows()`、`useTickets()`、`useReviews()` 封装数据 CRUD 操作
 
 ## 5. 画廊功能
 
-- [ ] 5.1 创建画廊主页面，包含头部区域（标题、成就徽章、搜索输入框、筛选按钮）
-- [ ] 5.2 实现 Top 9 海报网格（3×3），带华丽相框和剧目标签
-- [ ] 5.3 实现完整无缝海报网格（4 列），带悬停缩放效果
-- [ ] 5.4 实现演出评论动态流区域，包含评论卡片（缩略图、日期、引用、标签）
-- [ ] 5.5 添加 "Missing a Show?" 引导卡片，链接到剧目标签页
-- [ ] 5.6 实现海报网格的搜索筛选逻辑
-- [ ] 5.7 处理空画廊状态
+- [x] 5.1 创建画廊页面 `pages/gallery/index.tsx`：头部区域（`Text` 标题、成就徽章、`Input` 搜索框、筛选按钮）
+- [x] 5.2 实现 Top 9 海报网格（3×3），使用 `Image` + `.ornate-frame` 渲染华丽相框和 `Text` 显示剧目标签
+- [x] 5.3 实现完整无缝海报网格（4 列 `View` grid），`Image` 组件 `mode="aspectFill"`
+- [x] 5.4 实现演出评论动态流区域：从 Storage 读取评论，渲染评论卡片（`Image` 缩略图、`Text` 日期/引用/标签）
+- [x] 5.5 添加 "Missing a Show?" 引导卡片，`Taro.switchTab` 链接到剧目标签页
+- [x] 5.6 实现 `Input` 搜索框的筛选逻辑
+- [x] 5.7 处理空画廊状态
 
 ## 6. 票务管理功能
 
-- [ ] 6.1 创建票务中心页面（"My Box Office"），包含 3 个羊皮纸动作按钮（手动添加、扫描、查看票务）
-- [ ] 6.2 创建添加票务表单页面，包含字段：剧目名称、剧院、日期、时间、座位信息、购票渠道下拉框
-- [ ] 6.3 实现表单验证（剧目名称必填）和保存到 localStorage 的逻辑
-- [ ] 6.4 创建票务列表页面，包含"即将到来"/"过往"分区、羊皮纸票卡和撕裂线分隔
-- [ ] 6.5 实现票务日期排序（即将到来：正序，过往：倒序）
-- [ ] 6.6 实现扫描流程：文件选择器触发、图片预览、附加到票务表单
-- [ ] 6.7 处理空票务列表状态
-- [ ] 6.8 添加浮动操作按钮（FAB）用于快速添加票务
+- [x] 6.1 创建票务中心页面 `pages/tickets/index.tsx`（"My Box Office"），3 个羊皮纸动作按钮，使用 `Taro.navigateTo` 跳转
+- [x] 6.2 创建添加票务表单页面 `pages/tickets-add/index.tsx`：`Input` 字段（剧目名称、剧院、时间、座位）、`Picker` 组件（日期选择、购票渠道）
+- [x] 6.3 实现表单验证（`Taro.showToast` 提示必填）和 `Taro.setStorageSync` 保存逻辑
+- [x] 6.4 创建票务列表页面 `pages/tickets-list/index.tsx`：`ScrollView` 展示"即将到来"/"过往"分区，羊皮纸票卡（`.parchment-ticket` + `.perforation`）
+- [x] 6.5 实现票务日期排序（即将到来：正序，过往：倒序）
+- [x] 6.6 实现扫描流程：`Taro.chooseImage` 选择图片 → `Taro.saveFile` 保存 → 预览并跳转到添加表单
+- [x] 6.7 处理空票务列表状态
 
 ## 7. 剧目数据库功能
 
-- [ ] 7.1 创建"查找剧目"页面，包含搜索输入框、筛选图标和剧目结果列表
-- [ ] 7.2 实现剧目搜索，从本地数据库匹配标题/作曲家
-- [ ] 7.3 创建剧目详情页主视觉区域（全宽图片、标题叠加、"Now Playing" 徽章、侧边栏含演出信息）
-- [ ] 7.4 创建剧目详情页剧情简介区域，首字母放大样式
-- [ ] 7.5 创建剧目详情页演员阵容网格（4 列头像含姓名/角色）
-- [ ] 7.6 创建剧目详情页奖项侧边栏和制作历史列表
-- [ ] 7.7 创建剧目详情页观众评论区域，包含星级评分和评论卡片
-- [ ] 7.8 创建手动录入表单，包含所有字段（制作名称、语言、首演阵容、节目单封面上传、剧院、地区下拉框、版本、正在上演开关）
-- [ ] 7.9 实现手动录入保存逻辑，包含图片上传（base64 编码）
-- [ ] 7.10 添加 "Can't find your show?" 区域，链接到手动录入
+- [x] 7.1 创建"查找剧目"页面 `pages/shows/index.tsx`：`Input` 搜索框 + `ScrollView` 剧目结果列表
+- [x] 7.2 实现剧目搜索，从 Storage 读取数据匹配标题/作曲家
+- [x] 7.3 创建剧目详情页 `pages/shows-detail/index.tsx`：通过 `getCurrentInstance().router.params.id` 获取参数，渲染主视觉区域（`Image` + `Text` 叠加标题）
+- [x] 7.4 创建剧目详情页剧情简介区域
+- [x] 7.5 创建剧目详情页演员阵容网格（4 列 `Image` + `Text`）
+- [x] 7.6 创建剧目详情页奖项和制作历史列表
+- [x] 7.7 创建剧目详情页观众评论区域，星级评分（`Icon` 组件渲染星星）和评论卡片
+- [x] 7.8 创建手动录入表单页面 `pages/shows-new/index.tsx`：`Input`（制作名称、语言）、`Textarea`（首演阵容）、`Taro.chooseImage`（封面上传）、`Picker`（地区）、`Switch`（正在上演）
+- [x] 7.9 实现手动录入保存逻辑：`Taro.saveFile` 保存图片 + `Taro.setStorageSync` 保存剧目数据
+- [x] 7.10 添加 "Can't find your show?" 区域，`Taro.navigateTo` 链接到手动录入
 
 ## 8. 日历功能
 
-- [ ] 8.1 创建票房页面，包含日历头部（月/年 + 箭头导航）
-- [ ] 8.2 实现月度日历网格（7 列、星期标题、带编号的日期单元格）
-- [ ] 8.3 实现月份导航（上/下月）
-- [ ] 8.4 高亮有关联票务/剧目的日期（边框单元格 + 圆点指示器）
-- [ ] 8.5 创建按月份分组的时间顺序节目列表（日期、星期、剧目名称、剧院）
-- [ ] 8.6 节目条目链接到剧目详情页
-- [ ] 8.7 处理空日历状态
+- [x] 8.1 创建票房页面 `pages/calendar/index.tsx`：日历头部（`Text` 月/年 + 箭头按钮导航）
+- [x] 8.2 实现月度日历网格：7 列 `View` layout、`Text` 星期标题和日期编号
+- [x] 8.3 实现月份导航（React state 控制当前年月，点击箭头更新）
+- [x] 8.4 从 Storage 读取票务/剧目数据，高亮有关联的日期（边框 + 圆点指示器）
+- [x] 8.5 创建按月份分组的时间顺序节目列表（`View` 卡片含日期、星期、剧目名称、剧院）
+- [x] 8.6 节目条目点击通过 `Taro.navigateTo` 链接到剧目详情页
+- [x] 8.7 处理空日历状态
 
 ## 9. 演出评论功能
 
-- [ ] 9.1 创建演出评论表单页面，包含 "Act IV: Documentation" 头部
-- [ ] 9.2 实现节目单扫描/上传区域，带预览区和 "Launch Scanner" 文件选择器
-- [ ] 9.3 实现 4 个评分滑块（演员表现、舞美设计、音效保真度、叙事节奏），范围 1–5，带动态定性标签
-- [ ] 9.4 实现 Patron's Notes 文本框，带占位文字
-- [ ] 9.5 实现 "Stitch Repo" 提交按钮：保存评论到 localStorage 并导航到画廊
-- [ ] 9.6 接入从特定剧目详情页创建评论时的预填充功能
+- [x] 9.1 创建演出评论表单页面 `pages/gallery-review-new/index.tsx`："Act IV: Documentation" 头部
+- [x] 9.2 实现节目单上传区域：`Taro.chooseImage` → `Taro.saveFile` → `Image` 组件预览
+- [x] 9.3 实现 4 个 `Slider` 评分组件（演员表现、舞美设计、音效保真度、叙事节奏），范围 1–5，步长 1，动态 `Text` 定性标签
+- [x] 9.4 实现 `Textarea` 组件的 Patron's Notes 日记（`autoHeight` + 占位文字）
+- [x] 9.5 实现 "Stitch Repo" 提交：`Taro.setStorageSync` 保存评论 → `Taro.switchTab` 导航到画廊
+- [x] 9.6 通过 `getCurrentInstance().router.params.showId` 获取参数，实现从剧目详情页的预填充功能
 
 ## 10. 座位占位页
 
-- [ ] 10.1 创建座位标签页占位页面，以剧院风格显示 "Coming Soon" 提示
+- [x] 10.1 创建座位标签页占位页面 `pages/seats/index.tsx`：剧院风格 "Coming Soon" 提示（`View` + `Text` + `Icon`）
 
-## 11. 完善与集成
+## 11. 完善与集成测试
 
-- [ ] 11.1 验证所有导航流程端到端可用（标签页切换、子页面导航、返回按钮）
-- [ ] 11.2 确保所有数据通过 localStorage 在页面刷新后持久化
-- [ ] 11.3 审查移动端视窗的响应式布局（375px–428px）
-- [ ] 11.4 添加微交互：按钮按压缩放、悬停过渡、标签页切换动画
-- [ ] 11.5 测试节目单封面和票务扫描的图片上传/存储流程
-- [ ] 11.6 验证加载屏幕动画和自动跳转
+- [ ] 11.1 在微信开发者工具中验证所有导航流程（`switchTab`、`navigateTo`、`navigateBack`）
+- [ ] 11.2 验证自定义 TabBar 在所有 Tab 页面切换时的状态同步和视觉效果
+- [ ] 11.3 确保所有数据通过 Taro Storage 在小程序重启后持久化
+- [ ] 11.4 测试字体加载（`loadFontFace`）和降级表现
+- [ ] 11.5 测试图标系统（iconfont）在各个页面的渲染
+- [ ] 11.6 测试 `Taro.chooseImage` + `Taro.saveFile` 的图片选择/保存/预览流程
+- [ ] 11.7 检查 `weapp-tailwindcss` 转换后的样式在真机预览中的表现
+- [ ] 11.8 验证启动屏幕动画和自动跳转功能
+- [ ] 11.9 检查小程序包体积是否在 2MB 主包限制内（如超限考虑分包）

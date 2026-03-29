@@ -1,0 +1,6 @@
+.shows-new-page { min-height: 100vh; background-color: #fff9ed; }
+.cover-upload { margin: 0 auto 32rpx; width: 300rpx; height: 400rpx; border: 4rpx dashed #dfbfbd; border-radius: 16rpx; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.cover-upload__image { width: 100%; height: 100%; }
+.cover-upload__placeholder { display: flex; flex-direction: column; align-items: center; }
+.form-field__textarea { background-color: #f2e7d4; border-radius: 16rpx; padding: 20rpx 24rpx; font-size: 28rpx; color: #1f1c0b; width: 100%; min-height: 120rpx; box-sizing: border-box; }
+.form-field--row { display: flex; align-items: center; justify-content: space-between; }

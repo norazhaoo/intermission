@@ -1,0 +1,20 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "intermission",
+  "description": "Theater enthusiast companion app",
+  "appid": "wx21ec7698a5e1121e",
+  "setting": {
+    "urlCheck": false,
+    "es6": false,
+    "enhance": false,
+    "compileHotReLoad": false,
+    "postcss": false,
+    "minified": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "compileType": "miniprogram"
+}

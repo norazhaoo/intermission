@@ -1,0 +1,20 @@
+.curtain-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24rpx 32rpx;
+  opacity: 0.4;
+}
+
+.curtain-divider__line {
+  flex: 1;
+  height: 2rpx;
+  background-color: #8b716f;
+}
+
+.curtain-divider__icon {
+  padding: 0 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

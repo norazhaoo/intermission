@@ -31,7 +31,7 @@
 
 #### Scenario: 应用首次启动
 - **WHEN** 小程序启动
-- **THEN** 启动屏幕 SHALL 显示至少 2 秒后通过 `Taro.switchTab` 自动导航到画廊标签页
+- **THEN** 启动屏幕 SHALL 显示至少 1 秒后通过 `Taro.switchTab` 自动导航到画廊标签页
 
 ### Requirement: Taro 页面路由
 应用 SHALL 在 `app.config.ts` 中配置所有页面路径。Tab 页面使用 `Taro.switchTab` 导航，子页面使用 `Taro.navigateTo` 导航（支持页面参数传递如 `?id=xxx`），返回使用 `Taro.navigateBack`。

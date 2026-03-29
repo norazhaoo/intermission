@@ -1,0 +1,17 @@
+.add-ticket-page { min-height: 100vh; background-color: #fff9ed; }
+.form-section { padding: 32rpx; }
+
+.form-image-preview { margin-bottom: 32rpx; text-align: center; }
+.form-image-preview__img { width: 400rpx; height: 280rpx; border-radius: 16rpx; }
+
+.form-field { margin-bottom: 32rpx; }
+.form-field__label { font-size: 22rpx; color: #8b716f; display: block; margin-bottom: 12rpx; }
+.form-field__input {
+  background-color: #f2e7d4;
+  border-radius: 16rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  color: #1f1c0b;
+  width: 100%;
+  box-sizing: border-box;
+}
