@@ -2,7 +2,7 @@
     "miniprogramRoot": "dist/",
     "projectname": "intermission",
     "description": "Theater enthusiast companion app",
-    "appid": "wx4d86746da723627f",
+    "appid": "touristappid",
     "setting": {
         "urlCheck": false,
         "es6": false,
