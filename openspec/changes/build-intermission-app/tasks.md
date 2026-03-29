@@ -85,9 +85,23 @@
 - [x] 9.5 实现 "Stitch Repo" 提交：`Taro.setStorageSync` 保存评论 → `Taro.switchTab` 导航到画廊
 - [x] 9.6 通过 `getCurrentInstance().router.params.showId` 获取参数，实现从剧目详情页的预填充功能
 
-## 10. 座位占位页
+## 10. 座位体验功能
 
-- [x] 10.1 创建座位标签页占位页面 `pages/seats/index.tsx`：剧院风格 "Coming Soon" 提示（`View` + `Text` + `Icon`）
+- [x] 10.1 在 `src/lib/types.ts` 中新增 `SeatExperience` 接口：`id`、`showName`、`theater`、`section`（Orchestra/Mezzanine/Balcony/Box/Standing）、`row`、`seatNumber`、`date`、`viewRating`（1-5）、`notes`、`linkedTicketId?`、`createdAt`
+- [x] 10.2 在 `src/lib/store.ts` 中添加 `seats` 存储 key 和 CRUD 辅助函数
+- [x] 10.3 创建 `useSeats()` 自定义 Hook：封装座位体验数据的读写操作
+- [x] 10.4 重构座位标签页 `pages/seats/index.tsx`：移除 "Coming Soon" 占位，实现 "My Seats" 中心页面——头部标题、座位体验统计徽章、`Input` 搜索框
+- [x] 10.5 实现座位体验列表：`ScrollView` 展示羊皮纸风格座位卡片（`.parchment-ticket`），每张卡片显示剧目名称、剧院、座位位置（区域 + 排 + 号）、日期和星级评分
+- [x] 10.6 实现座位列表搜索筛选（按剧目名称/剧院名称匹配）
+- [x] 10.7 处理空座位列表状态：显示座位图标 + "No seat experiences yet" 提示 + "Record Your First Seat" 按钮
+- [x] 10.8 在 `app.config.ts` 中注册新页面路径：`pages/seats-add/index`、`pages/seats-detail/index`
+- [x] 10.9 创建添加座位体验表单页面 `pages/seats-add/index.tsx`：`Input`（剧目名称、剧院名称、排号、座号）、`Picker`（座位区域：Orchestra/Mezzanine/Balcony/Box/Standing）、`Picker`（日期）
+- [x] 10.10 实现视野评分组件：5 个可点击星形 `View`（金色填充/空心），点击设置评分值，下方 `Text` 显示定性标签（Obstructed/Limited/Acceptable/Good/Excellent）
+- [x] 10.11 实现 `Textarea` 座位备注区域（标题 "Seat Notes"，占位文字 "How was the view? Any obstructions? Legroom?"，`autoHeight`）
+- [x] 10.12 实现 "Link from Ticket" 功能：读取已有票务记录，通过 `Taro.showActionSheet` 弹出票务列表供选择，选择后自动填充剧目名称、剧院、日期和座位信息
+- [x] 10.13 实现表单验证（剧目名称和座位区域为必填）和 `Taro.setStorageSync` 保存逻辑
+- [x] 10.14 创建座位体验详情页 `pages/seats-detail/index.tsx`：通过 `getCurrentInstance().router.params.id` 获取参数，渲染大卡片展示完整座位信息（剧目、剧院、位置、日期、评分、备注）
+- [x] 10.15 实现详情页删除功能：`Taro.showModal` 确认对话框 → 从缓存删除记录 → `Taro.navigateBack`
 
 ## 11. 完善与集成测试
 
