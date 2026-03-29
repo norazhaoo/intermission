@@ -1,1 +1,0 @@
-.curtain-divider{align-items:center;display:flex;justify-content:center;opacity:.4;padding:24rpx 32rpx}.curtain-divider__line{background-color:#8b716f;flex:1;height:2rpx}.curtain-divider__icon{align-items:center;display:flex;justify-content:center;padding:0 16rpx}
