@@ -1,0 +1,81 @@
+.seats-add-page {
+  min-height: 100vh;
+  background-color: #fff9ed;
+  padding: 32rpx;
+}
+
+.form-section {
+  margin-bottom: 32rpx;
+}
+
+.form-section--half {
+  flex: 1;
+}
+
+.form-row {
+  display: flex;
+  gap: 24rpx;
+  margin-bottom: 32rpx;
+}
+
+.form-label {
+  font-size: 20rpx;
+  color: #8b716f;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.form-input {
+  background-color: #f2e7d4;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  color: #1f1c0b;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  background-color: #f2e7d4;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  color: #1f1c0b;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 160rpx;
+}
+
+.form-link-btn {
+  text-align: center;
+  margin-bottom: 16rpx;
+}
+
+/* 评分选择 */
+.rating-selector {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 8rpx;
+}
+
+.rating-star {
+  font-size: 56rpx;
+  color: #dfbfbd;
+  transition: color 0.15s ease;
+}
+
+.rating-star--active {
+  color: #d4af37;
+}
+
+.rating-label {
+  font-size: 24rpx;
+  color: #775a19;
+  margin-top: 8rpx;
+  display: block;
+}
+
+/* 提交按钮 */
+.form-actions {
+  margin-top: 48rpx;
+}

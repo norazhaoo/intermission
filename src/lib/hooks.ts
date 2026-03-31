@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react'
 import { useDidShow } from '@tarojs/taro'
-import { Show, Ticket, Review } from './types'
-import { getShows, getTickets, getReviews, addShow, addTicket, addReview, generateId } from './store'
+import { Show, Ticket, Review, SeatExperience } from './types'
+import { getShows, getTickets, getReviews, getSeats, addShow, addTicket, addReview, addSeat, deleteSeat, generateId } from './store'
 
 /** 剧目数据 Hook */
 export function useShows() {
@@ -89,4 +89,33 @@ export function useReviews() {
   }, [])
 
   return { reviews, create, refresh }
+}
+
+/** 座位体验数据 Hook */
+export function useSeats() {
+  const [seats, setSeats] = useState<SeatExperience[]>([])
+
+  useDidShow(() => {
+    setSeats(getSeats())
+  })
+
+  const create = useCallback((seat: Omit<SeatExperience, 'id' | 'createdAt'>) => {
+    const newSeat: SeatExperience = {
+      ...seat,
+      id: generateId(),
+      createdAt: new Date().toISOString()
+    }
+    addSeat(newSeat)
+    setSeats(getSeats())
+    return newSeat
+  }, [])
+
+  const remove = useCallback((id: string) => {
+    deleteSeat(id)
+    setSeats(getSeats())
+  }, [])
+
+  const sorted = [...seats].sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+
+  return { seats: sorted, create, remove }
 }

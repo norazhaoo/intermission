@@ -69,3 +69,18 @@ export interface Review {
   tag?: string
   createdAt: string
 }
+
+/** 座位体验数据接口 */
+export interface SeatExperience {
+  id: string
+  showName: string
+  theater: string
+  section: string
+  row?: string
+  seatNumber?: string
+  date?: string
+  viewRating: number
+  notes?: string
+  linkedTicketId?: string
+  createdAt: string
+}

@@ -10,7 +10,9 @@ export default defineAppConfig({
     'pages/tickets-add/index',
     'pages/tickets-list/index',
     'pages/shows-detail/index',
-    'pages/shows-new/index'
+    'pages/shows-new/index',
+    'pages/seats-add/index',
+    'pages/seats-detail/index'
   ],
   window: {
     backgroundTextStyle: 'light',

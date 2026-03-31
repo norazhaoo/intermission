@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { Show, Ticket, Review } from './types'
+import { Show, Ticket, Review, SeatExperience } from './types'
 import { SEED_SHOWS } from './data'
 
 // Storage keys
@@ -7,7 +7,8 @@ const KEYS = {
   SHOWS: 'intermission_shows',
   TICKETS: 'intermission_tickets',
   REVIEWS: 'intermission_reviews',
-  INITIALIZED: 'intermission_initialized'
+  SEATS: 'intermission_seats',
+  INITIALIZED: 'intermission_initialized_v3'
 }
 
 /** 通用 Storage 读取 */
@@ -89,6 +90,28 @@ export function addReview(review: Review): void {
   const reviews = getReviews()
   reviews.push(review)
   setItem(KEYS.REVIEWS, reviews)
+}
+
+// ================================
+// Seats CRUD
+// ================================
+export function getSeats(): SeatExperience[] {
+  return getItem<SeatExperience[]>(KEYS.SEATS, [])
+}
+
+export function getSeatById(id: string): SeatExperience | undefined {
+  return getSeats().find(s => s.id === id)
+}
+
+export function addSeat(seat: SeatExperience): void {
+  const seats = getSeats()
+  seats.push(seat)
+  setItem(KEYS.SEATS, seats)
+}
+
+export function deleteSeat(id: string): void {
+  const seats = getSeats().filter(s => s.id !== id)
+  setItem(KEYS.SEATS, seats)
 }
 
 // ================================

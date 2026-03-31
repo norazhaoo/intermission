@@ -1,0 +1,117 @@
+.seats-detail-page {
+  min-height: 100vh;
+  background-color: #fff9ed;
+}
+
+.detail-container {
+  padding: 32rpx;
+}
+
+.detail-card {
+  overflow: hidden;
+}
+
+.detail-card__header {
+  padding: 32rpx;
+  background: linear-gradient(135deg, rgba(93, 0, 10, 0.05), rgba(93, 0, 10, 0.02));
+}
+
+.detail-card__show {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #5d000a;
+  display: block;
+  text-transform: uppercase;
+}
+
+.detail-card__theater {
+  font-size: 24rpx;
+  color: #8b716f;
+  display: block;
+  margin-top: 8rpx;
+}
+
+.detail-card__info {
+  padding: 24rpx 32rpx;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid rgba(223, 191, 189, 0.3);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row__label {
+  font-size: 20rpx;
+  color: #8b716f;
+}
+
+.info-row__value {
+  font-size: 28rpx;
+  color: #1f1c0b;
+}
+
+/* 评分区域 */
+.info-section {
+  margin-top: 24rpx;
+}
+
+.info-section__label {
+  font-size: 20rpx;
+  color: #8b716f;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.info-section__notes {
+  font-size: 26rpx;
+  color: #4c4733;
+  font-style: italic;
+  line-height: 1.6;
+  display: block;
+}
+
+.rating-block {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.rating-block__label {
+  font-size: 26rpx;
+  color: #775a19;
+  font-weight: 500;
+}
+
+/* 星级评分 */
+.star-rating {
+  display: flex;
+  gap: 4rpx;
+}
+
+.star-rating__star {
+  font-size: 36rpx;
+  color: #dfbfbd;
+}
+
+.star-rating__star--filled {
+  color: #d4af37;
+}
+
+/* 删除按钮 */
+.delete-btn {
+  margin-top: 48rpx;
+  text-align: center;
+  border-color: #c0392b;
+}
+
+.delete-btn__text {
+  color: #c0392b;
+  font-size: 24rpx;
+}
