@@ -12,20 +12,20 @@ export default function Tickets() {
   const actions = [
     {
       icon: '✎',
-      title: 'Manual Add Ticket',
-      subtitle: 'Enter ticket details by hand',
+      title: '手动添加票根',
+      subtitle: '手动输入票根详情',
       url: '/pages/tickets-add/index'
     },
     {
       icon: '📷',
-      title: 'Scan to Add Ticket',
-      subtitle: 'Photograph your physical ticket',
+      title: '扫码添加票根',
+      subtitle: '拍摄你的实体票根',
       url: '/pages/tickets-add/index?scan=true'
     },
     {
       icon: '👁',
-      title: 'View Tickets',
-      subtitle: 'Browse your ticket collection',
+      title: '查看票根',
+      subtitle: '浏览你的票根收藏',
       url: '/pages/tickets-list/index'
     }
   ]
@@ -33,9 +33,9 @@ export default function Tickets() {
   return (
     <View className='tickets-page'>
       <View className='tickets-header'>
-        <Text className='tickets-header__title font-headline'>My Box Office</Text>
+        <Text className='tickets-header__title font-headline'>我的票仓</Text>
         <Text className='tickets-header__subtitle font-body'>
-          Manage your theatrical admission
+          管理你的观剧票根
         </Text>
       </View>
 

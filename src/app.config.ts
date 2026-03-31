@@ -17,7 +17,7 @@ export default defineAppConfig({
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff9ed',
-    navigationBarTitleText: 'The Playbill',
+    navigationBarTitleText: '剧目手帐',
     navigationBarTextStyle: 'black',
     backgroundColor: '#fff9ed'
   },
@@ -29,23 +29,23 @@ export default defineAppConfig({
     list: [
       {
         pagePath: 'pages/gallery/index',
-        text: 'GALLERY'
+        text: '画廊'
       },
       {
         pagePath: 'pages/tickets/index',
-        text: 'TICKETS'
+        text: '票根'
       },
       {
         pagePath: 'pages/seats/index',
-        text: 'SEATS'
+        text: '座位'
       },
       {
         pagePath: 'pages/shows/index',
-        text: 'SHOWS'
+        text: '剧目'
       },
       {
         pagePath: 'pages/calendar/index',
-        text: 'CALENDAR'
+        text: '日历'
       }
     ]
   }

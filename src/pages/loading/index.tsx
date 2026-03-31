@@ -39,7 +39,7 @@ export default function Loading() {
       {/* 中央内容 */}
       <View className='loading-page__content'>
         <Text className='loading-page__title font-headline'>Intermission</Text>
-        <Text className='loading-page__subtitle font-label'>THE PLAYBILL</Text>
+        <Text className='loading-page__subtitle font-label'>剧目手帐</Text>
 
         {/* 金色进度条 */}
         <View className='loading-page__progress-wrap'>
@@ -49,7 +49,7 @@ export default function Loading() {
           />
         </View>
 
-        <Text className='loading-page__footer font-body'>The curtains are rising...</Text>
+        <Text className='loading-page__footer font-body'>幕布正在升起...</Text>
       </View>
     </View>
   )

@@ -14,7 +14,7 @@ export default function TicketsAdd() {
   const [time, setTime] = useState('')
   const [seat, setSeat] = useState('')
   const [channelIdx, setChannelIdx] = useState(0)
-  const [imageUrl, setImageUrl] = useState(params.imageUrl ? decodeURIComponent(params.imageUrl) : '')
+  const [imageUrl] = useState(params.imageUrl ? decodeURIComponent(params.imageUrl) : '')
 
   const handleSave = () => {
     if (!showName.trim()) {
@@ -47,55 +47,55 @@ export default function TicketsAdd() {
         )}
 
         <View className='form-field'>
-          <Text className='form-field__label font-label'>Show Name *</Text>
+          <Text className='form-field__label font-label'>剧目名称 *</Text>
           <Input
             className='form-field__input font-body'
-            placeholder='Enter show name'
+            placeholder='输入剧目名称'
             value={showName}
             onInput={e => setShowName(e.detail.value)}
           />
         </View>
 
         <View className='form-field'>
-          <Text className='form-field__label font-label'>Theater</Text>
+          <Text className='form-field__label font-label'>剧院</Text>
           <Input
             className='form-field__input font-body'
-            placeholder='Enter theater name'
+            placeholder='输入剧院名称'
             value={theater}
             onInput={e => setTheater(e.detail.value)}
           />
         </View>
 
         <View className='form-field'>
-          <Text className='form-field__label font-label'>Date</Text>
-          <Picker mode='date' onChange={e => setDate(e.detail.value)}>
+          <Text className='form-field__label font-label'>日期</Text>
+          <Picker mode='date' value={date} onChange={e => setDate(e.detail.value)}>
             <View className='form-field__input font-body'>
-              <Text>{date || 'Select date'}</Text>
+              <Text>{date || '选择日期'}</Text>
             </View>
           </Picker>
         </View>
 
         <View className='form-field'>
-          <Text className='form-field__label font-label'>Time</Text>
-          <Picker mode='time' onChange={e => setTime(e.detail.value)}>
+          <Text className='form-field__label font-label'>时间</Text>
+          <Picker mode='time' value={time} onChange={e => setTime(e.detail.value)}>
             <View className='form-field__input font-body'>
-              <Text>{time || 'Select time'}</Text>
+              <Text>{time || '选择时间'}</Text>
             </View>
           </Picker>
         </View>
 
         <View className='form-field'>
-          <Text className='form-field__label font-label'>Seat Assignment</Text>
+          <Text className='form-field__label font-label'>座位信息</Text>
           <Input
             className='form-field__input font-body'
-            placeholder='e.g. Orchestra A12'
+            placeholder='例如：一楼 A排12座'
             value={seat}
             onInput={e => setSeat(e.detail.value)}
           />
         </View>
 
         <View className='form-field'>
-          <Text className='form-field__label font-label'>Purchase Channel</Text>
+          <Text className='form-field__label font-label'>购票渠道</Text>
           <Picker
             mode='selector'
             range={CHANNELS}
@@ -114,7 +114,7 @@ export default function TicketsAdd() {
           hoverClass='btn-theatrical-active'
           onClick={handleSave}
         >
-          <Text style={{ color: '#fff' }}>Save to Collection</Text>
+          <Text style={{ color: '#fff' }}>保存到收藏</Text>
         </View>
       </View>
     </View>

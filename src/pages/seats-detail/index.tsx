@@ -14,10 +14,10 @@ export default function SeatsDetail() {
           >
             <Text className='material-symbols-outlined text-[#5d000a] dark:text-[#ffb4ab]'>arrow_back</Text>
           </View>
-          <Text className='font-headline text-[#5d000a] uppercase tracking-widest text-[40rpx] leading-none font-black italic'>The Playbill</Text>
+          <Text className='font-headline text-[#5d000a] uppercase tracking-widest text-[40rpx] leading-none font-black italic'>剧目手帐</Text>
         </View>
         <View className='flex items-center gap-4'>
-          <Text className='font-label text-[#584140] dark:text-[#dfbfbd] text-[28rpx] hidden md:block'>MAJESTIC THEATRE</Text>
+          <Text className='font-label text-[#584140] dark:text-[#dfbfbd] text-[28rpx] hidden md:block'>MAJESTIC THEATRE（美琪大戏院）</Text>
           <View className='w-10 h-10 rounded-full overflow-hidden border-2 border-secondary'>
             <Image className='w-full h-full' src='https://lh3.googleusercontent.com/aida-public/AB6AXuCZqH1wmaR6z-lt4t7sugoVTg38oyV2Zvb1tkS_IvB3lyJcoW019kFefP71ou7q7kBXh-3TTlyTxbPrh-i2YdcX61Gtjd3-PRTz8cFznuyCbA_HwQxkse9iFZVg9mawYJmWLeBoxpzHNLgBfWBGT61IwQCXb2dqYgYB-o9jSRC7yw0XkWd6IRvjOmINycLlRaQafJIaSngu_KEyy60ejmGrWuHcoDbINto7JcEBQlNr76LGOJA9cdPAVsLJWDTOGiwyKg2VGTL7V8g' mode='aspectFill' />
           </View>
@@ -42,10 +42,10 @@ export default function SeatsDetail() {
             {/* View Indicator Labels */}
             <View className='absolute top-6 left-6 flex flex-col gap-2'>
               <Text className='bg-secondary text-on-secondary px-3 py-1 text-[20rpx] font-bold tracking-widest uppercase rounded-sm self-start'>
-                Mezzanine Center
+                中心楼座
               </Text>
               <Text className='bg-primary text-on-primary px-3 py-1 text-[20rpx] font-bold tracking-widest uppercase rounded-sm self-start'>
-                Row C • Seat 112
+                C 排 • 112 座
               </Text>
             </View>
             
@@ -70,10 +70,10 @@ export default function SeatsDetail() {
                 <Text className='material-symbols-outlined absolute -right-8 -top-8 text-surface-container-high text-[256rpx] opacity-50 select-none'>event_seat</Text>
                 
                 <Text className='font-headline text-[72rpx] md:text-[96rpx] leading-tight text-primary font-black italic mb-6 block' style={{lineHeight: '1.2'}}>
-                  Proscenium Fidelity
+                  舞台保真度
                 </Text>
                 <Text className='text-on-surface-variant font-body text-[36rpx] leading-relaxed mb-8 max-w-2xl block'>
-                  Positioned in the heart of the Front Mezzanine, Seat 112 offers an unobstructed panoramic view of the grand stage. The elevation provides a perfect sightline for choreography-heavy productions, ensuring you miss no detail of the ensemble work.
+                  坐落于前排楼座中心，112座为您呈现舞台的无遮挡全景。高度正好能够鸟瞰复杂的舞台编舞，确保您绝不会错过任何群舞细节。
                 </Text>
                 
                 <View className='flex flex-col md:flex-row gap-6'>
@@ -81,7 +81,7 @@ export default function SeatsDetail() {
                   <View className='flex-1 bg-surface-container p-6 border-b-[4rpx] border-secondary'>
                     <View className='flex items-center gap-3 mb-4'>
                       <Text className='material-symbols-outlined text-secondary'>graphic_eq</Text>
-                      <Text className='font-headline text-[36rpx] font-bold text-tertiary block' style={{lineHeight: 1}}>Acoustic Clarity</Text>
+                      <Text className='font-headline text-[36rpx] font-bold text-tertiary block' style={{lineHeight: 1}}>声质清晰度</Text>
                     </View>
                     <View className='flex items-end gap-[4rpx] mb-2 h-[80rpx]'>
                       <View className='w-[8rpx] h-[32rpx] bg-secondary'></View>
@@ -89,10 +89,10 @@ export default function SeatsDetail() {
                       <View className='w-[8rpx] h-[64rpx] bg-secondary'></View>
                       <View className='w-[8rpx] h-[80rpx] bg-secondary'></View>
                       <View className='w-[8rpx] h-[56rpx] bg-outline-variant'></View>
-                      <Text className='ml-2 font-label text-[28rpx] text-secondary font-bold inline-block leading-none mt-auto'>92% Perfect</Text>
+                      <Text className='ml-2 font-label text-[28rpx] text-secondary font-bold inline-block leading-none mt-auto'>完美度 92%</Text>
                     </View>
                     <Text className='text-on-surface-variant text-[28rpx] block mt-4'>
-                      Natural amplification from the theater's vaulted ceiling focuses directly on this section.
+                      剧院拱顶的自然扩音结构直接将声音完美汇聚于此区域。
                     </Text>
                   </View>
                   
@@ -100,7 +100,7 @@ export default function SeatsDetail() {
                   <View className='flex-1 bg-surface-container p-6 border-b-[4rpx] border-secondary'>
                     <View className='flex items-center gap-3 mb-4'>
                       <Text className='material-symbols-outlined text-secondary'>straighten</Text>
-                      <Text className='font-headline text-[36rpx] font-bold text-tertiary block' style={{lineHeight: 1}}>Legroom Rating</Text>
+                      <Text className='font-headline text-[36rpx] font-bold text-tertiary block' style={{lineHeight: 1}}>腿部空间指数</Text>
                     </View>
                     <View className='flex gap-[4rpx] mb-2 h-[80rpx] items-center'>
                       <Text className='material-symbols-outlined text-secondary text-[48rpx]' style={{ fontVariationSettings: "'FILL' 1" }}>star</Text>
@@ -110,7 +110,7 @@ export default function SeatsDetail() {
                       <Text className='material-symbols-outlined text-outline-variant text-[48rpx]'>star</Text>
                     </View>
                     <Text className='text-on-surface-variant text-[28rpx] block mt-4'>
-                      Standard historic theater spacing. Ideal for patrons up to 6'1".
+                      标准历史剧院间距设计。适合身高 1.85 米以内的观众落座。
                     </Text>
                   </View>
                 </View>
@@ -125,15 +125,15 @@ export default function SeatsDetail() {
               
               {/* Review Section */}
               <View className='space-y-6 pb-20'>
-                <Text className='font-headline text-[48rpx] text-primary italic block mb-6'>Patron Dispatches</Text>
+                <Text className='font-headline text-[48rpx] text-primary italic block mb-6'>观众随笔</Text>
                 <View className='space-y-4'>
                   <View className='flex gap-6 items-start'>
                     <View className='flex-shrink-0 w-16 h-16 rounded-full overflow-hidden bg-surface-container-highest'>
                       <Image className='w-full h-full' src='https://lh3.googleusercontent.com/aida-public/AB6AXuAIBDmrciHqGeHgm4AtjUWGtQogooS-VyUbO-ynsWQl-A1DWlzKTMYJXLXCm_PgXripyWxILVtH8tdtuEN40y_jGGMoM3OqO8cjr7UnW_qpXI2v7GQiUidNH9HCYlvhzRMB0fFL4Jb-1GrhBpZmb12ixRhZ5LsyC96SXub_g2Ri_daybthAmdJttTmcw1S1ed2SAH3tQLFg4MFAmyAr5TVdmpXqYbrK62nxBE1l8feeG6htYUiQnwduIe-8kRm2tQ8Cc5g1np2s2H8' mode='aspectFill' />
                     </View>
                     <View className='border-l-[4rpx] border-outline-variant pl-6 py-2'>
-                      <Text className='font-body italic text-on-surface-variant block text-[32rpx]'>"The sightlines for Phantom were extraordinary. You can see the chandelier's ascent perfectly from here."</Text>
-                      <Text className='font-label text-[24rpx] mt-4 uppercase tracking-widest text-secondary block'>— Eleanor Vance, Oct 2023</Text>
+                      <Text className='font-body italic text-on-surface-variant block text-[32rpx]'>"《歌剧魅影》在这个视角的视线极佳。能完美看到吊灯升起的诡异轨迹。"</Text>
+                      <Text className='font-label text-[24rpx] mt-4 uppercase tracking-widest text-secondary block'>— Eleanor Vance, 2023 年 10 月</Text>
                     </View>
                   </View>
                 </View>
@@ -144,8 +144,8 @@ export default function SeatsDetail() {
             <View className='flex-[5] lg:w-5/12 pb-24'>
               <View className='lg:sticky top-28 bg-surface-container shadow-2xl rounded-sm p-6 border border-secondary/20'>
                 <View className='flex justify-between items-center mb-6'>
-                  <Text className='font-headline text-[40rpx] text-primary font-bold'>House Map</Text>
-                  <Text className='font-label text-[24rpx] text-secondary-fixed-variant bg-secondary-fixed px-2 py-1'>CENTER MEZZANINE</Text>
+                  <Text className='font-headline text-[40rpx] text-primary font-bold'>剧院落座图</Text>
+                  <Text className='font-label text-[24rpx] text-secondary-fixed-variant bg-secondary-fixed px-2 py-1'>中心楼座</Text>
                 </View>
                 
                 {/* Vintage-styled Seat Map */}
@@ -156,7 +156,7 @@ export default function SeatsDetail() {
                   
                   <View className='relative z-10 w-full h-full flex flex-col items-center justify-center flex-1'>
                     <View className='w-48 h-12 bg-primary/10 border-[4rpx] border-primary/20 flex items-center justify-center mb-10'>
-                      <Text className='font-headline text-primary/40 text-[24rpx] tracking-widest uppercase block'>STAGE</Text>
+                      <Text className='font-headline text-primary/40 text-[24rpx] tracking-widest uppercase block'>舞 台</Text>
                     </View>
                     
                     <View className='grid grid-cols-10 gap-2 opacity-40 justify-center w-full my-4'>
@@ -175,7 +175,7 @@ export default function SeatsDetail() {
                       <View className='relative mx-auto flex justify-center items-center'>
                         <View className='w-8 h-8 rounded-full bg-primary shadow-lg ring-[8rpx] ring-primary/20' style={{ animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}></View>
                         <Text className='absolute -top-12 self-center font-label text-[20rpx] bg-primary text-on-primary px-2 py-1 whitespace-nowrap' style={{ transform: 'translateX(-50%)', left: '50%' }}>
-                          YOU ARE HERE
+                          您的位置
                         </Text>
                       </View>
                       
@@ -189,7 +189,7 @@ export default function SeatsDetail() {
                 
                 <View className='mt-8 space-y-4'>
                   <View className='flex justify-between items-center text-on-surface'>
-                    <Text className='font-label uppercase tracking-widest text-[24rpx]'>Standard Price</Text>
+                    <Text className='font-label uppercase tracking-widest text-[24rpx]'>标准票价</Text>
                     <Text className='font-headline font-bold text-[36rpx]'>$189.00</Text>
                   </View>
                 </View>

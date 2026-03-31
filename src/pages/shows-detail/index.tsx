@@ -20,7 +20,7 @@ export default function ShowsDetail() {
 
   if (!show) {
     return (
-      <View className='detail-page'><Text className='font-body'>Loading...</Text></View>
+      <View className='detail-page'><Text className='font-body'>加载中...</Text></View>
     )
   }
 
@@ -41,7 +41,7 @@ export default function ShowsDetail() {
           <Text className='detail-hero__title font-headline'>{show.title}</Text>
           {show.isRunning && (
             <View className='detail-hero__badge'>
-              <Text className='font-label' style={{ color: '#fff', fontSize: '18rpx' }}>Now Playing</Text>
+              <Text className='font-label' style={{ color: '#fff', fontSize: '18rpx' }}>正在上演</Text>
             </View>
           )}
         </View>
@@ -51,18 +51,18 @@ export default function ShowsDetail() {
       <View className='detail-info parchment-ticket'>
         {show.theater && (
           <View className='detail-info__row'>
-            <Text className='detail-info__label font-label'>Theater</Text>
+            <Text className='detail-info__label font-label'>剧院</Text>
             <Text className='detail-info__value font-body'>{show.theater}</Text>
           </View>
         )}
         {show.runDates && (
           <View className='detail-info__row'>
-            <Text className='detail-info__label font-label'>Run Dates</Text>
+            <Text className='detail-info__label font-label'>演出日期</Text>
             <Text className='detail-info__value font-body'>{show.runDates}</Text>
           </View>
         )}
         <View className='detail-info__row'>
-          <Text className='detail-info__label font-label'>Composer</Text>
+          <Text className='detail-info__label font-label'>作曲</Text>
           <Text className='detail-info__value font-body'>{show.composer}</Text>
         </View>
       </View>
@@ -70,7 +70,7 @@ export default function ShowsDetail() {
       {/* 剧情简介 */}
       {show.synopsis && (
         <View className='detail-section'>
-          <Text className='detail-section__title font-headline'>Synopsis</Text>
+          <Text className='detail-section__title font-headline'>剧情简介</Text>
           <Text className='detail-section__text font-body'>{show.synopsis}</Text>
         </View>
       )}
@@ -80,7 +80,7 @@ export default function ShowsDetail() {
       {/* 演员阵容 */}
       {show.cast && show.cast.length > 0 && (
         <View className='detail-section'>
-          <Text className='detail-section__title font-headline'>Cast</Text>
+          <Text className='detail-section__title font-headline'>演员阵容</Text>
           <View className='cast-grid'>
             {show.cast.map((member, idx) => (
               <View key={idx} className='cast-item'>
@@ -106,7 +106,7 @@ export default function ShowsDetail() {
       {/* 奖项 */}
       {show.awards && show.awards.length > 0 && (
         <View className='detail-section'>
-          <Text className='detail-section__title font-headline'>Awards & Honors</Text>
+          <Text className='detail-section__title font-headline'>奖项与荣誉</Text>
           {show.awards.map((award, idx) => (
             <View key={idx} className='award-item'>
               <Text style={{ marginRight: '12rpx' }}>🏆</Text>
@@ -119,7 +119,7 @@ export default function ShowsDetail() {
       {/* 制作历史 */}
       {show.productionHistory && show.productionHistory.length > 0 && (
         <View className='detail-section'>
-          <Text className='detail-section__title font-headline'>Production History</Text>
+          <Text className='detail-section__title font-headline'>制作历史</Text>
           {show.productionHistory.map((entry, idx) => (
             <View key={idx} className='history-item'>
               <Text className='history-item__year font-headline'>{entry.year}</Text>
@@ -133,7 +133,7 @@ export default function ShowsDetail() {
 
       {/* 观众评论 */}
       <View className='detail-section'>
-        <Text className='detail-section__title font-headline'>Audience Impressions</Text>
+        <Text className='detail-section__title font-headline'>观众印象</Text>
         {show.reviews && show.reviews.length > 0 ? (
           show.reviews.map(review => (
             <View key={review.id} className='audience-review'>
@@ -151,7 +151,7 @@ export default function ShowsDetail() {
             </View>
           ))
         ) : (
-          <Text className='font-body' style={{ color: '#8b716f' }}>No reviews yet</Text>
+          <Text className='font-body' style={{ color: '#8b716f' }}>暂无评论</Text>
         )}
 
         <View
@@ -160,7 +160,7 @@ export default function ShowsDetail() {
           hoverClass='btn-theatrical-active'
           onClick={() => Taro.navigateTo({ url: `/pages/gallery-review-new/index?showId=${show.id}` })}
         >
-          <Text style={{ color: '#fff' }}>Leave a Review</Text>
+          <Text style={{ color: '#fff' }}>留下评论</Text>
         </View>
       </View>
 

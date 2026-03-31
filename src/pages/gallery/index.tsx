@@ -31,15 +31,15 @@ export default function Gallery() {
     <ScrollView scrollY className='gallery-page'>
       {/* 头部 */}
       <View className='gallery-header'>
-        <Text className='gallery-header__title font-headline'>Grand Gallery</Text>
-        <Text className='gallery-header__subtitle font-body'>Your theatrical archives</Text>
+        <Text className='gallery-header__title font-headline'>戏剧画廊</Text>
+        <Text className='gallery-header__subtitle font-body'>你的观剧档案</Text>
 
         {/* 成就徽章 */}
         {shows.length > 0 && (
           <View className='gallery-badge'>
             <Text className='gallery-badge__icon'>✨</Text>
             <Text className='gallery-badge__text font-label'>
-              Patron of the Arts: {shows.length} Performances
+              艺术赞助人: {shows.length} 场演出
             </Text>
           </View>
         )}
@@ -49,7 +49,7 @@ export default function Gallery() {
           <Text className='gallery-search__icon'>🔍</Text>
           <Input
             className='gallery-search__input font-body'
-            placeholder='Search the archives...'
+            placeholder='搜索档案...'
             placeholderClass='gallery-search__placeholder'
             value={searchQuery}
             onInput={(e) => setSearchQuery(e.detail.value)}
@@ -59,13 +59,13 @@ export default function Gallery() {
         {/* 筛选按钮 */}
         <View className='gallery-filters'>
           <View className='gallery-filters__btn gallery-filters__btn--active'>
-            <Text className='font-label'>All</Text>
+            <Text className='font-label'>全部</Text>
           </View>
           <View className='gallery-filters__btn'>
-            <Text className='font-label'>Favorites</Text>
+            <Text className='font-label'>最爱</Text>
           </View>
           <View className='gallery-filters__btn'>
-            <Text className='font-label'>By Premiere</Text>
+            <Text className='font-label'>按首演时间</Text>
           </View>
         </View>
       </View>
@@ -74,7 +74,7 @@ export default function Gallery() {
       {top9.length > 0 && (
         <View className='gallery-section'>
           <View className='gallery-section__header'>
-            <Text className='gallery-section__title font-headline'>— TOP 9 —</Text>
+            <Text className='gallery-section__title font-headline'>— 精选 9 —</Text>
           </View>
           <View className='gallery-top9'>
             {top9.map(show => (
@@ -101,7 +101,7 @@ export default function Gallery() {
       {allShows.length > 0 && (
         <View className='gallery-section'>
           <View className='gallery-section__header'>
-            <Text className='gallery-section__title font-headline'>Complete Archive</Text>
+            <Text className='gallery-section__title font-headline'>完整档案</Text>
           </View>
           <View className='gallery-grid'>
             {allShows.map(show => (
@@ -125,15 +125,15 @@ export default function Gallery() {
       {shows.length === 0 && (
         <View className='gallery-empty'>
           <Text className='gallery-empty__icon'>🎭</Text>
-          <Text className='gallery-empty__title font-headline'>Your gallery awaits</Text>
+          <Text className='gallery-empty__title font-headline'>属于你的画廊</Text>
           <Text className='gallery-empty__text font-body'>
-            Add shows to your collection to build your theatrical gallery
+            添加演出来建立你的戏剧画廊
           </Text>
           <View
             className='btn-theatrical'
             onClick={() => Taro.switchTab({ url: '/pages/shows/index' })}
           >
-            <Text style={{ color: '#fff' }}>Explore Shows</Text>
+            <Text style={{ color: '#fff' }}>探索演出</Text>
           </View>
         </View>
       )}
@@ -143,12 +143,12 @@ export default function Gallery() {
       {/* 演出评论动态流 */}
       <View className='gallery-section'>
         <View className='gallery-section__header'>
-          <Text className='gallery-section__title font-headline'>Performance Reviews</Text>
+          <Text className='gallery-section__title font-headline'>观剧评论</Text>
           <View
             className='btn-gold-outline'
             onClick={() => Taro.navigateTo({ url: '/pages/gallery-review-new/index' })}
           >
-            <Text>Add Review</Text>
+            <Text>添加评论</Text>
           </View>
         </View>
 
@@ -176,7 +176,7 @@ export default function Gallery() {
                     {new Date(review.createdAt).toLocaleDateString()}
                   </Text>
                   <Text className='review-card__quote font-body'>
-                    "{review.notes || 'No notes provided'}"
+                    "{review.notes || '暂无笔记'}"
                   </Text>
                   {review.tag && (
                     <View className='review-card__tag'>
@@ -190,7 +190,7 @@ export default function Gallery() {
         ) : (
           <View className='gallery-reviews-empty'>
             <Text className='font-body' style={{ color: '#8b716f' }}>
-              Share your theatrical experiences. Your reviews appear here.
+              分享你的观剧体验吧，所有的评论将显示在这里。
             </Text>
           </View>
         )}
@@ -198,16 +198,16 @@ export default function Gallery() {
 
       {/* Missing a Show? */}
       <View className='gallery-cta parchment-ticket'>
-        <Text className='gallery-cta__title font-headline'>Missing a Show?</Text>
+        <Text className='gallery-cta__title font-headline'>找不到演出？</Text>
         <Text className='gallery-cta__text font-body'>
-          Explore our database and add new shows to your collection
+          在我们的数据库中探索并将新演出加入收藏
         </Text>
         <View
           className='btn-theatrical'
           style={{ marginTop: '16rpx' }}
           onClick={() => Taro.switchTab({ url: '/pages/shows/index' })}
         >
-          <Text style={{ color: '#fff' }}>Explore Database</Text>
+          <Text style={{ color: '#fff' }}>探索数据库</Text>
         </View>
       </View>
 

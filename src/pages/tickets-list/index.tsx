@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+
 import { View, Text, ScrollView } from '@tarojs/components'
 import { useTickets } from '../../lib/hooks'
 import CurtainDivider from '../../components/CurtainDivider'
@@ -11,7 +11,7 @@ export default function TicketsList() {
     <ScrollView scrollY className='tickets-list-page'>
       {/* 即将到来 */}
       <View className='tickets-section'>
-        <Text className='tickets-section__title font-headline'>Upcoming</Text>
+        <Text className='tickets-section__title font-headline'>即将到来</Text>
         {upcoming.length > 0 ? (
           upcoming.map(ticket => (
             <View key={ticket.id} className='ticket-card parchment-ticket'>
@@ -22,22 +22,22 @@ export default function TicketsList() {
               <View className='perforation' />
               <View className='ticket-card__details'>
                 <View className='ticket-card__row'>
-                  <Text className='ticket-card__label font-label'>Date</Text>
+                  <Text className='ticket-card__label font-label'>日期</Text>
                   <Text className='ticket-card__value font-body'>{ticket.date}</Text>
                 </View>
                 <View className='ticket-card__row'>
-                  <Text className='ticket-card__label font-label'>Time</Text>
+                  <Text className='ticket-card__label font-label'>时间</Text>
                   <Text className='ticket-card__value font-body'>{ticket.time || '—'}</Text>
                 </View>
                 <View className='ticket-card__row'>
-                  <Text className='ticket-card__label font-label'>Seat</Text>
+                  <Text className='ticket-card__label font-label'>座位</Text>
                   <Text className='ticket-card__value font-body'>{ticket.seatAssignment || '—'}</Text>
                 </View>
               </View>
             </View>
           ))
         ) : (
-          <Text className='tickets-section__empty font-body'>No upcoming shows</Text>
+          <Text className='tickets-section__empty font-body'>暂无即将到来的演出</Text>
         )}
       </View>
 
@@ -45,7 +45,7 @@ export default function TicketsList() {
 
       {/* 过往 */}
       <View className='tickets-section'>
-        <Text className='tickets-section__title font-headline'>Past</Text>
+        <Text className='tickets-section__title font-headline'>过往</Text>
         {past.length > 0 ? (
           past.map(ticket => (
             <View key={ticket.id} className='ticket-card ticket-card--past parchment-ticket'>
@@ -56,14 +56,14 @@ export default function TicketsList() {
               <View className='perforation' />
               <View className='ticket-card__details'>
                 <View className='ticket-card__row'>
-                  <Text className='ticket-card__label font-label'>Date</Text>
+                  <Text className='ticket-card__label font-label'>日期</Text>
                   <Text className='ticket-card__value font-body'>{ticket.date}</Text>
                 </View>
               </View>
             </View>
           ))
         ) : (
-          <Text className='tickets-section__empty font-body'>No past shows yet</Text>
+          <Text className='tickets-section__empty font-body'>暂无过往演出</Text>
         )}
       </View>
 

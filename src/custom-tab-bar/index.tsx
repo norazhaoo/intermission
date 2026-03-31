@@ -11,11 +11,11 @@ interface TabItem {
 }
 
 const TAB_LIST: TabItem[] = [
-  { pagePath: '/pages/gallery/index', text: 'GALLERY', icon: '🖼', iconFilled: '🖼' },
-  { pagePath: '/pages/tickets/index', text: 'TICKETS', icon: '🎫', iconFilled: '🎫' },
-  { pagePath: '/pages/seats/index', text: 'SEATS', icon: '💺', iconFilled: '💺' },
-  { pagePath: '/pages/shows/index', text: 'SHOWS', icon: '🎭', iconFilled: '🎭' },
-  { pagePath: '/pages/calendar/index', text: 'CALENDAR', icon: '📅', iconFilled: '📅' }
+  { pagePath: '/pages/gallery/index', text: '画廊', icon: '🖼', iconFilled: '🖼' },
+  { pagePath: '/pages/tickets/index', text: '票根', icon: '🎫', iconFilled: '🎫' },
+  { pagePath: '/pages/seats/index', text: '座位', icon: '💺', iconFilled: '💺' },
+  { pagePath: '/pages/shows/index', text: '剧目', icon: '🎭', iconFilled: '🎭' },
+  { pagePath: '/pages/calendar/index', text: '日历', icon: '📅', iconFilled: '📅' }
 ]
 
 interface CustomTabBarState {

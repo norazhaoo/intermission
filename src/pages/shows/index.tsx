@@ -21,12 +21,12 @@ export default function Shows() {
   return (
     <View className='shows-page'>
       <View className='shows-header'>
-        <Text className='shows-header__title font-headline'>Find a Show</Text>
+        <Text className='shows-header__title font-headline'>发现剧目</Text>
         <View className='shows-search'>
           <Text className='shows-search__icon'>🔍</Text>
           <Input
             className='shows-search__input font-body'
-            placeholder='Search by title, composer, genre...'
+            placeholder='按标题、作曲家、流派搜索...'
             placeholderClass='shows-search__placeholder'
             value={query}
             onInput={e => setQuery(e.detail.value)}
@@ -47,7 +47,7 @@ export default function Shows() {
               <Text className='show-item__composer font-body'>{show.composer}</Text>
               {show.isRunning && (
                 <View className='show-item__badge'>
-                  <Text className='font-label'>Now Playing</Text>
+                  <Text className='font-label'>正在上演</Text>
                 </View>
               )}
             </View>
@@ -56,14 +56,14 @@ export default function Shows() {
 
         {/* 找不到剧目提示 */}
         <View className='shows-cta parchment-ticket'>
-          <Text className='shows-cta__title font-headline'>Can't find your show?</Text>
-          <Text className='shows-cta__text font-body'>Add it manually to the archives</Text>
+          <Text className='shows-cta__title font-headline'>找不到你的剧目？</Text>
+          <Text className='shows-cta__text font-body'>手动将其添加到档案中</Text>
           <View
             className='btn-theatrical'
             style={{ marginTop: '16rpx' }}
             onClick={() => Taro.navigateTo({ url: '/pages/shows-new/index' })}
           >
-            <Text style={{ color: '#fff' }}>Add Manual Entry</Text>
+            <Text style={{ color: '#fff' }}>手动添加剧目</Text>
           </View>
         </View>
 

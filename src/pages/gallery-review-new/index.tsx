@@ -6,10 +6,10 @@ import CurtainDivider from '../../components/CurtainDivider'
 import './index.scss'
 
 const SCORE_LABELS: Record<string, string[]> = {
-  cast: ['Weak', 'Adequate', 'Good', 'Excellent', 'EXCEPTIONAL'],
-  scenic: ['Plain', 'Decent', 'Immersive', 'Stunning', 'ATMOSPHERIC'],
-  acoustic: ['Muffled', 'Passable', 'Clear', 'Brilliant', 'CRYSTAL CLEAR'],
-  narrative: ['Confused', 'Predictable', 'Engaging', 'Riveting', 'COMPELLING']
+  cast: ['较差', '一般', '良好', '优秀', '极致'],
+  scenic: ['简陋', '过得去', '沉浸', '惊艳', '身临其境'],
+  acoustic: ['沉闷', '及格', '清晰', '出色', '水晶般透亮'],
+  narrative: ['平庸', '可预测', '吸引人', '引人入胜', '扣人心弦']
 }
 
 export default function GalleryReviewNew() {
@@ -39,18 +39,18 @@ export default function GalleryReviewNew() {
     addReview({
       id: generateId(),
       showId: showId || undefined,
-      showName: show?.title || 'Unknown Show',
+      showName: show?.title || '未知剧目',
       playbillImageUrl: playbillUrl,
       castPerformance: castScore,
       scenicDesign: scenicScore,
       acousticFidelity: acousticScore,
       narrativeFlow: narrativeScore,
       notes,
-      tag: castScore >= 4 ? 'Encore Worthy' : castScore >= 3 ? 'Worth Seeing' : undefined,
+      tag: castScore >= 4 ? '值得二刷' : castScore >= 3 ? '值得一看' : undefined,
       createdAt: new Date().toISOString()
     })
 
-    Taro.showToast({ title: 'Review saved!', icon: 'success' })
+    Taro.showToast({ title: '评论已保存！', icon: 'success' })
     setTimeout(() => Taro.switchTab({ url: '/pages/gallery/index' }), 800)
   }
 
@@ -85,24 +85,24 @@ export default function GalleryReviewNew() {
     <View className='review-page'>
       {/* 装饰头部 */}
       <View className='review-act-header velvet-bg'>
-        <Text className='review-act-header__label font-label'>Act IV</Text>
-        <Text className='review-act-header__title font-headline'>Documentation</Text>
+        <Text className='review-act-header__label font-label'>第四幕</Text>
+        <Text className='review-act-header__title font-headline'>档案记录</Text>
       </View>
 
       {/* 预填充剧目信息 */}
       {show && (
         <View className='review-show-info parchment-ticket'>
           <Text className='font-headline' style={{ color: '#5d000a', fontSize: '28rpx' }}>
-            Reviewing: {show.title}
+            正在评价: {show.title}
           </Text>
         </View>
       )}
 
       {/* 节目单上传 */}
       <View className='review-section'>
-        <Text className='review-section__title font-headline'>Playbill Digitization</Text>
+        <Text className='review-section__title font-headline'>节目单数字化</Text>
         <Text className='review-section__desc font-body'>
-          Scan or photograph your physical playbill for the archives
+          扫描或拍摄您的实体节目单以归档
         </Text>
         <View className='playbill-upload' onClick={handleUpload}>
           {playbillUrl ? (
@@ -111,7 +111,7 @@ export default function GalleryReviewNew() {
             <View className='playbill-upload__placeholder'>
               <Text style={{ fontSize: '48rpx' }}>📄</Text>
               <Text className='font-body' style={{ color: '#8b716f', fontSize: '22rpx' }}>
-                Launch Scanner
+                启动扫描仪
               </Text>
             </View>
           )}
@@ -122,21 +122,21 @@ export default function GalleryReviewNew() {
 
       {/* 评分滑块 */}
       <View className='review-section'>
-        <Text className='review-section__title font-headline'>Performance Scores</Text>
-        {renderSlider('Cast Performance', 'Vocal ability, stage presence, chemistry', 'cast', castScore, setCastScore)}
-        {renderSlider('Scenic Design', 'Set design, lighting, visual atmosphere', 'scenic', scenicScore, setScenicScore)}
-        {renderSlider('Acoustic Fidelity', 'Sound quality, balance, clarity', 'acoustic', acousticScore, setAcousticScore)}
-        {renderSlider('Narrative Flow', 'Story pacing, emotional arc, engagement', 'narrative', narrativeScore, setNarrativeScore)}
+        <Text className='review-section__title font-headline'>演出评分</Text>
+        {renderSlider('演员表现', '声乐能力、舞台表现力、化学反应', 'cast', castScore, setCastScore)}
+        {renderSlider('舞美设计', '布景设计、灯光、视觉氛围', 'scenic', scenicScore, setScenicScore)}
+        {renderSlider('声学保真度', '音质、平衡、清晰度', 'acoustic', acousticScore, setAcousticScore)}
+        {renderSlider('叙事流畅度', '故事节奏、情感弧线、参与度', 'narrative', narrativeScore, setNarrativeScore)}
       </View>
 
       <CurtainDivider />
 
       {/* 笔记 */}
       <View className='review-section'>
-        <Text className='review-section__title font-headline'>Patron's Notes</Text>
+        <Text className='review-section__title font-headline'>观众随笔</Text>
         <Textarea
           className='review-notes font-body'
-          placeholder="Capture the evening's essence... the way the light hit the balcony, the hush of the crowd..."
+          placeholder="留下今晚的感动……"
           placeholderClass='review-notes__placeholder'
           value={notes}
           onInput={e => setNotes(e.detail.value)}
@@ -151,7 +151,7 @@ export default function GalleryReviewNew() {
           hoverClass='btn-theatrical-active'
           onClick={handleSubmit}
         >
-          <Text style={{ color: '#fff' }}>✦ Stitch Repo ✦</Text>
+          <Text style={{ color: '#fff' }}>✦ 保存评论 ✦</Text>
         </View>
       </View>
     </View>

@@ -13,10 +13,10 @@ export default function Seats() {
       {/* Hero Section */}
       <View className='text-center mb-16 relative z-10 w-full'>
         <Text className='text-secondary-fixed/80 font-medium tracking-wide text-xs mb-4 block uppercase'>
-          Box Office Management
+          票房管理
         </Text>
         <Text className='font-headline text-[96rpx] leading-none text-secondary-fixed font-black tracking-tighter mb-6 italic block'>
-          The Grand Gallery
+          剧场视角
         </Text>
         <View className='flex items-center justify-center gap-4 opacity-40'>
           <View className='h-px w-12 bg-secondary-fixed'></View>
@@ -40,10 +40,10 @@ export default function Seats() {
             </View>
             <View className='flex flex-col flex-1 justify-center items-center'>
               <Text className='font-headline text-[56rpx] text-primary font-black uppercase italic tracking-tighter leading-tight block'>
-                Add Seat View
+                添加视角
               </Text>
               <Text className='text-on-surface-variant text-[20rpx] font-bold uppercase tracking-widest mt-3 opacity-70 max-w-[360rpx] block text-center'>
-                Capture and upload new theatrical perspectives for the audience.
+                为观众捕捉并上传新的剧场视角。
               </Text>
             </View>
           </View>
@@ -61,10 +61,10 @@ export default function Seats() {
             </View>
             <View className='flex flex-col flex-1 justify-center items-center'>
               <Text className='font-headline text-[56rpx] text-primary font-black uppercase italic tracking-tighter leading-tight block'>
-                Search Seat
+                搜索座位
               </Text>
               <Text className='text-on-surface-variant text-[20rpx] font-bold uppercase tracking-widest mt-3 opacity-70 max-w-[360rpx] block text-center'>
-                Locate specific viewings and manage existing inventory across the house.
+                定位并浏览全场已有的座位视角档案。
               </Text>
             </View>
           </View>

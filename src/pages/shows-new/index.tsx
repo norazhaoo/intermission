@@ -67,51 +67,51 @@ export default function ShowsNew() {
             <View className='cover-upload__placeholder'>
               <Text style={{ fontSize: '64rpx' }}>📷</Text>
               <Text className='font-body' style={{ color: '#8b716f', fontSize: '22rpx', marginTop: '12rpx' }}>
-                Upload Playbill Cover
+                上传封面
               </Text>
             </View>
           )}
         </View>
 
         <View className='form-field'>
-          <Text className='form-field__label font-label'>Production Name *</Text>
-          <Input className='form-field__input font-body' placeholder='Enter production name' value={title} onInput={e => setTitle(e.detail.value)} />
+          <Text className='form-field__label font-label'>制作名称 *</Text>
+          <Input className='form-field__input font-body' placeholder='输入制作名称' value={title} onInput={e => setTitle(e.detail.value)} />
         </View>
 
         <View className='form-field'>
-          <Text className='form-field__label font-label'>Original Language</Text>
-          <Input className='form-field__input font-body' placeholder='e.g. English, French' value={language} onInput={e => setLanguage(e.detail.value)} />
+          <Text className='form-field__label font-label'>原版语言</Text>
+          <Input className='form-field__input font-body' placeholder='例如：英语、法语' value={language} onInput={e => setLanguage(e.detail.value)} />
         </View>
 
         <View className='form-field'>
-          <Text className='form-field__label font-label'>Debut Cast *</Text>
-          <Textarea className='form-field__textarea font-body' placeholder='Enter cast members...' value={cast} onInput={e => setCast(e.detail.value)} autoHeight />
+          <Text className='form-field__label font-label'>首演阵容 *</Text>
+          <Textarea className='form-field__textarea font-body' placeholder='输入演员名单...' value={cast} onInput={e => setCast(e.detail.value)} autoHeight />
         </View>
 
         <View className='form-field'>
-          <Text className='form-field__label font-label'>Debut Theater</Text>
-          <Input className='form-field__input font-body' placeholder='Enter theater name' value={theater} onInput={e => setTheater(e.detail.value)} />
+          <Text className='form-field__label font-label'>首演剧院</Text>
+          <Input className='form-field__input font-body' placeholder='输入剧院名称' value={theater} onInput={e => setTheater(e.detail.value)} />
         </View>
 
         <View className='form-field'>
-          <Text className='form-field__label font-label'>Region</Text>
+          <Text className='form-field__label font-label'>地区</Text>
           <Picker mode='selector' range={REGIONS} value={regionIdx} onChange={e => setRegionIdx(Number(e.detail.value))}>
             <View className='form-field__input font-body'><Text>{REGIONS[regionIdx]}</Text></View>
           </Picker>
         </View>
 
         <View className='form-field'>
-          <Text className='form-field__label font-label'>Version</Text>
-          <Input className='form-field__input font-body' placeholder='e.g. Revival, Tour' value={version} onInput={e => setVersion(e.detail.value)} />
+          <Text className='form-field__label font-label'>版本</Text>
+          <Input className='form-field__input font-body' placeholder='例如：复排、巡演' value={version} onInput={e => setVersion(e.detail.value)} />
         </View>
 
         <View className='form-field form-field--row'>
-          <Text className='form-field__label font-label'>Currently Running</Text>
+          <Text className='form-field__label font-label'>正在上演</Text>
           <Switch checked={isRunning} onChange={e => setIsRunning(e.detail.value)} color='#5d000a' />
         </View>
 
         <View className='btn-theatrical' style={{ marginTop: '48rpx' }} hoverClass='btn-theatrical-active' onClick={handleSave}>
-          <Text style={{ color: '#fff' }}>Commit to Archives</Text>
+          <Text style={{ color: '#fff' }}>存入档案记录</Text>
         </View>
       </View>
     </View>

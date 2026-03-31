@@ -15,7 +15,7 @@ export default function SeatsAdd() {
             <Text className='material-symbols-outlined'>arrow_back</Text>
           </View>
           <Text className='font-headline text-[48rpx] font-bold tracking-tight text-[#5d000a] dark:text-[#ffb4ab]' style={{lineHeight: 1}}>
-            Capture View
+            捕捉视角
           </Text>
         </View>
         <View className='flex items-center gap-2'>
@@ -37,7 +37,7 @@ export default function SeatsAdd() {
           <View className='absolute inset-0 viewfinder-mask pointer-events-none flex flex-col items-center justify-between p-8'>
             <View className='bg-on-background/40 px-6 py-3 rounded-full border border-secondary/20' style={{ backdropFilter: 'blur(12px)' }}>
               <Text className='text-secondary-fixed text-[20rpx] uppercase tracking-[0.2em] font-bold text-center block'>
-                Align guides with stage edges for standard perspective
+                将辅助线与舞台边缘对齐，获得标准视角
               </Text>
             </View>
             
@@ -51,7 +51,7 @@ export default function SeatsAdd() {
 
             <View className='bg-on-background/40 px-6 py-3 rounded-lg border border-outline-variant/30 mt-auto' style={{ backdropFilter: 'blur(12px)' }}>
               <Text className='text-surface font-body text-[20rpx] tracking-widest uppercase font-medium block'>
-                Fixed Focal Length: 1.0x (Human Eye Fidelity)
+                固定焦距：1.0x (人眼视觉保全)
               </Text>
             </View>
           </View>
@@ -71,7 +71,7 @@ export default function SeatsAdd() {
               <View className='w-[96rpx] h-[96rpx] rounded-full bg-surface-container-high flex items-center justify-center text-secondary border border-outline-variant/40 group-hover:bg-secondary-container transition-all'>
                 <Text className='material-symbols-outlined text-[48rpx]'>filter_frames</Text>
               </View>
-              <Text className='text-[20rpx] uppercase tracking-tighter font-bold text-on-surface-variant'>Gallery</Text>
+              <Text className='text-[20rpx] uppercase tracking-tighter font-bold text-on-surface-variant'>画廊</Text>
             </View>
             
             {/* Shutter Button */}
@@ -91,12 +91,12 @@ export default function SeatsAdd() {
               <View className='w-[96rpx] h-[96rpx] rounded-full bg-surface-container-high flex items-center justify-center text-secondary border border-outline-variant/40 group-hover:bg-secondary-container transition-all'>
                 <Text className='material-symbols-outlined text-[48rpx]'>flash_on</Text>
               </View>
-              <Text className='text-[20rpx] uppercase tracking-tighter font-bold text-on-surface-variant'>Flash</Text>
+              <Text className='text-[20rpx] uppercase tracking-tighter font-bold text-on-surface-variant'>闪光灯</Text>
             </View>
           </View>
           
           <Text className='font-headline italic text-on-surface-variant/80 text-[28rpx] mt-4'>
-            Capture the stage exactly as the audience sees it.
+            完美定格观众眼中的舞台景象。
           </Text>
         </View>
       </View>

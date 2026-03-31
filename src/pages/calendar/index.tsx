@@ -6,9 +6,9 @@ import { getTickets } from '../../lib/store'
 import { Ticket } from '../../lib/types'
 import './index.scss'
 
-const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December']
+const WEEKDAYS = ['日', '一', '二', '三', '四', '五', '六']
+const MONTHS = ['一月', '二月', '三月', '四月', '五月', '六月',
+  '七月', '八月', '九月', '十月', '十一月', '十二月']
 
 export default function Calendar() {
   const now = new Date()
@@ -51,7 +51,7 @@ export default function Calendar() {
   // 按月份分组票务
   const grouped = tickets.reduce<Record<string, Ticket[]>>((acc, t) => {
     const d = new Date(t.date)
-    const key = `${MONTHS[d.getMonth()]} ${d.getFullYear()}`
+    const key = `${d.getFullYear()}年 ${MONTHS[d.getMonth()]}`
     if (!acc[key]) acc[key] = []
     acc[key].push(t)
     return acc
@@ -61,14 +61,14 @@ export default function Calendar() {
     <ScrollView scrollY className='calendar-page'>
       {/* 头部 */}
       <View className='calendar-header'>
-        <Text className='calendar-header__title font-headline'>Box Office</Text>
+        <Text className='calendar-header__title font-headline'>观剧日历</Text>
       </View>
 
       {/* 日历 */}
       <View className='calendar-card parchment-ticket'>
         <View className='calendar-nav'>
           <View onClick={prevMonth}><Text className='calendar-nav__arrow'>‹</Text></View>
-          <Text className='calendar-nav__title font-headline'>{MONTHS[month]} {year}</Text>
+          <Text className='calendar-nav__title font-headline'>{year}年 {MONTHS[month]}</Text>
           <View onClick={nextMonth}><Text className='calendar-nav__arrow'>›</Text></View>
         </View>
 
@@ -132,7 +132,7 @@ export default function Calendar() {
           <View className='program-empty'>
             <Text className='program-empty__icon'>📅</Text>
             <Text className='program-empty__text font-body'>
-              No performances scheduled yet. Add tickets to see them here.
+              暂无演出安排。添加票根后将在此显示。
             </Text>
           </View>
         )}
