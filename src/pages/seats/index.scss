@@ -1,181 +1,20 @@
-.seats-container {
-  min-height: 100vh;
-  background-color: #fff9ed;
-}
-
-.seats-page {
-  min-height: 100vh;
-}
-
-/* 头部 */
-.seats-header {
-  padding: 32rpx;
-}
-
-.seats-header__row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.seats-header__title {
-  font-size: 48rpx;
-  font-weight: 700;
-  color: #5d000a;
-  display: block;
-}
-
-.seats-header__add {
-  width: 72rpx;
-  height: 72rpx;
-  border-radius: 36rpx;
-  background: linear-gradient(135deg, #5d000a, #81131a);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4rpx 12rpx rgba(93, 0, 10, 0.3);
-}
-
-.seats-header__add-icon {
-  color: #fff;
-  font-size: 40rpx;
-  font-weight: 300;
-  line-height: 1;
-}
-
-/* 统计徽章 */
-.seats-badge {
-  display: inline-flex;
-  margin-top: 12rpx;
-  background-color: #553a34;
-  border: 2rpx solid #d4af37;
-  border-radius: 20rpx;
-  padding: 8rpx 20rpx;
-}
-
-.seats-badge__text {
-  font-size: 20rpx;
-  color: #fed488;
-}
-
-/* 搜索框 */
-.seats-search {
-  margin-top: 20rpx;
-  background-color: #f2e7d4;
-  border-radius: 16rpx;
-  padding: 18rpx 24rpx;
-  font-size: 26rpx;
-  color: #1f1c0b;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* 座位列表 */
-.seats-list {
-  padding: 0 32rpx;
-  display: flex;
-  flex-direction: column;
-  gap: 24rpx;
-}
-
-/* 座位卡片 */
-.seat-card {
+.velvet-bg-seats {
+  background: linear-gradient(145deg, #5d000a 0%, #81131a 100%);
+  position: relative;
   overflow: hidden;
-  transition: transform 0.15s ease;
 }
-
-.seat-card__header {
-  padding: 24rpx;
+.velvet-bg-seats::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZe_N-fPbgPH87ExO9EB7JJIcjgyEdkElPjk2tjL1V_c8Ngiqd1uC35700oriys_QcvtlAKOzL6DaJHkxQ1w-brQc4pgN9copVWmdhH3zbRK2IaEahMr3MFr4KLI1NNn1BjcTjqIfCQ0cJOTx0J8gXg-KYfZE9A6muObnIaSmnoOVOAFGIcsd6c_0a9b17deur39d5s8GmByPUay965rZIF6HqRiSRDKQlp8YgFL5Lj5WtHxgk88lv1wCxL6b27T5s7IwQxRnKU-g');
+  opacity: 0.15;
+  pointer-events: none;
 }
-
-.seat-card__show {
-  font-size: 30rpx;
-  font-weight: 700;
-  color: #5d000a;
-  display: block;
-  text-transform: uppercase;
-}
-
-.seat-card__theater {
-  font-size: 22rpx;
-  color: #8b716f;
-  display: block;
-  margin-top: 8rpx;
-}
-
-.seat-card__details {
-  padding: 20rpx 24rpx;
-}
-
-.seat-card__row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8rpx 0;
-}
-
-.seat-card__label {
-  font-size: 20rpx;
-  color: #8b716f;
-}
-
-.seat-card__value {
-  font-size: 24rpx;
-  color: #1f1c0b;
-}
-
-.seat-card__rating {
-  display: flex;
-  align-items: center;
-  gap: 8rpx;
-}
-
-.seat-card__rating-label {
-  font-size: 18rpx;
-  color: #775a19;
-}
-
-/* 星级评分 */
-.star-rating {
-  display: flex;
-  gap: 4rpx;
-}
-
-.star-rating__star {
-  font-size: 28rpx;
-  color: #dfbfbd;
-}
-
-.star-rating__star--filled {
-  color: #d4af37;
-}
-
-/* 空状态 */
-.seats-empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 80rpx 64rpx;
-}
-
-.seats-empty__icon {
-  font-size: 128rpx;
-  margin-bottom: 32rpx;
-}
-
-.seats-empty__title {
-  font-size: 36rpx;
-  color: #5d000a;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 16rpx;
-}
-
-.seats-empty__text {
-  font-size: 26rpx;
-  color: #8b716f;
-  display: block;
-  max-width: 500rpx;
-  line-height: 1.5;
+.parchment-ticket {
+  background-color: #fcf3d8;
+  position: relative;
 }

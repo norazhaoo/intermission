@@ -1,139 +1,82 @@
-import { useState } from 'react'
 import Taro, { useDidShow } from '@tarojs/taro'
-import { View, Text, Input, ScrollView } from '@tarojs/components'
-import { useSeats } from '../../lib/hooks'
-import CurtainDivider from '../../components/CurtainDivider'
+import { View, Text } from '@tarojs/components'
 import './index.scss'
 
-const VIEW_LABELS = ['', 'Obstructed', 'Limited', 'Acceptable', 'Good', 'Excellent']
-
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <View className='star-rating'>
-      {[1, 2, 3, 4, 5].map(i => (
-        <Text key={i} className={`star-rating__star ${i <= rating ? 'star-rating__star--filled' : ''}`}>
-          {i <= rating ? '★' : '☆'}
-        </Text>
-      ))}
-    </View>
-  )
-}
-
 export default function Seats() {
-  const { seats } = useSeats()
-  const [search, setSearch] = useState('')
-
   useDidShow(() => {
     const tabBar = Taro.getTabBar?.()
     tabBar?.setSelected(2)
   })
 
-  const filtered = search.trim()
-    ? seats.filter(s =>
-        s.showName.toLowerCase().includes(search.toLowerCase()) ||
-        s.theater.toLowerCase().includes(search.toLowerCase())
-      )
-    : seats
-
   return (
-    <ScrollView scrollY className='seats-container'>
-      <View className='seats-page'>
-        {/* 头部 */}
-        <View className='seats-header'>
-          <View className='seats-header__row'>
-            <Text className='seats-header__title font-headline'>My Seats</Text>
-            <View
-              className='seats-header__add'
-              hoverClass='btn-theatrical-active'
-              onClick={() => Taro.navigateTo({ url: '/pages/seats-add/index' })}
-            >
-              <Text className='seats-header__add-icon'>+</Text>
+    <View className='min-h-screen velvet-bg-seats pt-[100rpx] pb-[160rpx] px-6 flex flex-col items-center justify-center font-body'>
+      {/* Hero Section */}
+      <View className='text-center mb-16 relative z-10 w-full'>
+        <Text className='text-secondary-fixed/80 font-medium tracking-wide text-xs mb-4 block uppercase'>
+          Box Office Management
+        </Text>
+        <Text className='font-headline text-[96rpx] leading-none text-secondary-fixed font-black tracking-tighter mb-6 italic block'>
+          The Grand Gallery
+        </Text>
+        <View className='flex items-center justify-center gap-4 opacity-40'>
+          <View className='h-px w-12 bg-secondary-fixed'></View>
+          <Text className='material-symbols-outlined text-secondary-fixed text-sm' style={{ fontVariationSettings: "'FILL' 1" }}>
+            star
+          </Text>
+          <View className='h-px w-12 bg-secondary-fixed'></View>
+        </View>
+      </View>
+
+      {/* Central Action Grid */}
+      <View className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl relative z-10'>
+        {/* Add Seat View Button */}
+        <View 
+          className='group parchment-ticket p-1 shadow-2xl transition-transform active:scale-[0.98] duration-200 aspect-[4/3] flex flex-col'
+          onClick={() => Taro.navigateTo({ url: '/pages/seats-add/index' })}
+        >
+          <View className='border-[4rpx] border-primary/20 p-6 flex flex-col items-center text-center bg-[#fcf3d8] flex-1 h-full'>
+            <View className='w-16 h-16 rounded-full border-2 border-primary flex items-center justify-center bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 mb-6 mt-4'>
+              <Text className='material-symbols-outlined text-3xl'>add_a_photo</Text>
             </View>
-          </View>
-          {seats.length > 0 && (
-            <View className='seats-badge'>
-              <Text className='seats-badge__text font-label'>
-                {seats.length} Seat{seats.length !== 1 ? 's' : ''} Recorded
+            <View className='flex flex-col flex-1 justify-center items-center'>
+              <Text className='font-headline text-[56rpx] text-primary font-black uppercase italic tracking-tighter leading-tight block'>
+                Add Seat View
+              </Text>
+              <Text className='text-on-surface-variant text-[20rpx] font-bold uppercase tracking-widest mt-3 opacity-70 max-w-[360rpx] block text-center'>
+                Capture and upload new theatrical perspectives for the audience.
               </Text>
             </View>
-          )}
-          <Input
-            className='seats-search font-body'
-            placeholder='Search by show or theater...'
-            value={search}
-            onInput={e => setSearch(e.detail.value)}
-          />
+          </View>
         </View>
 
-        <CurtainDivider icon='diamond' />
-
-        {/* 座位列表 */}
-        {filtered.length > 0 ? (
-          <View className='seats-list'>
-            {filtered.map(seat => (
-              <View
-                key={seat.id}
-                className='seat-card parchment-ticket'
-                hoverClass='btn-theatrical-active'
-                onClick={() => Taro.navigateTo({ url: `/pages/seats-detail/index?id=${seat.id}` })}
-              >
-                <View className='seat-card__header'>
-                  <Text className='seat-card__show font-headline'>{seat.showName}</Text>
-                  <Text className='seat-card__theater font-body'>{seat.theater}</Text>
-                </View>
-                <View className='perforation' />
-                <View className='seat-card__details'>
-                  <View className='seat-card__row'>
-                    <Text className='seat-card__label font-label'>Section</Text>
-                    <Text className='seat-card__value font-body'>{seat.section}</Text>
-                  </View>
-                  <View className='seat-card__row'>
-                    <Text className='seat-card__label font-label'>Seat</Text>
-                    <Text className='seat-card__value font-body'>
-                      {seat.row ? `Row ${seat.row}` : ''}{seat.row && seat.seatNumber ? ', ' : ''}{seat.seatNumber ? `Seat ${seat.seatNumber}` : '—'}
-                    </Text>
-                  </View>
-                  <View className='seat-card__row'>
-                    <Text className='seat-card__label font-label'>Date</Text>
-                    <Text className='seat-card__value font-body'>{seat.date || '—'}</Text>
-                  </View>
-                  <View className='seat-card__row'>
-                    <Text className='seat-card__label font-label'>View</Text>
-                    <View className='seat-card__rating'>
-                      <StarRating rating={seat.viewRating} />
-                      <Text className='seat-card__rating-label font-label'>
-                        {VIEW_LABELS[seat.viewRating] || ''}
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </View>
-            ))}
-          </View>
-        ) : seats.length === 0 ? (
-          <View className='seats-empty'>
-            <Text className='seats-empty__icon'>💺</Text>
-            <Text className='seats-empty__title font-headline'>No seat experiences yet</Text>
-            <Text className='seats-empty__text font-body'>
-              Record your theater seating experiences to remember the best views
-            </Text>
-            <View
-              className='btn-theatrical'
-              style={{ marginTop: '32rpx' }}
-              hoverClass='btn-theatrical-active'
-              onClick={() => Taro.navigateTo({ url: '/pages/seats-add/index' })}
-            >
-              <Text style={{ color: '#fff' }}>Record Your First Seat</Text>
+        {/* Search Seat Button */}
+        <View 
+          className='group parchment-ticket p-1 shadow-2xl transition-transform active:scale-[0.98] duration-200 aspect-[4/3] flex flex-col'
+          // Temporarily route to detail to show off the visual
+          onClick={() => Taro.navigateTo({ url: '/pages/seats-detail/index' })}
+        >
+          <View className='border-[4rpx] border-primary/20 p-6 flex flex-col items-center text-center bg-[#fcf3d8] flex-1 h-full'>
+            <View className='w-16 h-16 rounded-full border-2 border-primary flex items-center justify-center bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 mb-6 mt-4'>
+              <Text className='material-symbols-outlined text-3xl'>map</Text>
+            </View>
+            <View className='flex flex-col flex-1 justify-center items-center'>
+              <Text className='font-headline text-[56rpx] text-primary font-black uppercase italic tracking-tighter leading-tight block'>
+                Search Seat
+              </Text>
+              <Text className='text-on-surface-variant text-[20rpx] font-bold uppercase tracking-widest mt-3 opacity-70 max-w-[360rpx] block text-center'>
+                Locate specific viewings and manage existing inventory across the house.
+              </Text>
             </View>
           </View>
-        ) : (
-          <View className='seats-empty'>
-            <Text className='seats-empty__text font-body'>No matching seat experiences</Text>
-          </View>
-        )}
-
-        <View style={{ height: '160rpx' }} />
+        </View>
       </View>
-    </ScrollView>
+
+      {/* Curtain Divider Style Decorative Element */}
+      <View className='mt-20 flex flex-col items-center opacity-40 relative z-10 w-full'>
+        <View className='w-24 h-px bg-secondary-fixed mb-4'></View>
+        <Text className='material-symbols-outlined text-secondary-fixed text-4xl block line-height-1'>flare</Text>
+        <View className='w-24 h-px bg-secondary-fixed mt-4'></View>
+      </View>
+    </View>
   )
 }
