@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Taro from '@tarojs/taro'
 import { View, Text, Input, Textarea, Picker, Switch, Image } from '@tarojs/components'
 import { addShow, generateId } from '../../lib/store'
+import posterGeneric from '../../assets/images/poster-generic.png'
 import './index.scss'
 
 const REGIONS = ['Broadway', 'West End', 'China', 'Other']
@@ -42,7 +43,7 @@ export default function ShowsNew() {
       title: title.trim(),
       composer: cast.trim(),
       synopsis: '',
-      posterUrl: posterUrl || 'https://via.placeholder.com/300x400/5d000a/fed488?text=🎭',
+      posterUrl: posterUrl || posterGeneric,
       region: REGIONS[regionIdx].toLowerCase().replace(' ', '-') as any,
       language: language.trim(),
       theater: theater.trim(),

@@ -6,6 +6,8 @@ import './index.scss'
 export default function Loading() {
   const [progress, setProgress] = useState(0)
 
+  // 改为 2000 毫秒（2秒），因为小程序初始化和自定义 tabBar 的加载需要时间。
+  // 太早调用 switchTab 会导致底层 WAService 发生 timeout 错误。
   useEffect(() => {
     // 进度条动画
     const timer = setInterval(() => {
@@ -18,10 +20,11 @@ export default function Loading() {
       })
     }, 40)
 
-    // 1秒后跳转到画廊
+    // 2秒后跳转到画廊，给开发者工具和系统足够的初始化时间
     const redirect = setTimeout(() => {
       Taro.switchTab({ url: '/pages/gallery/index' })
-    }, 1000)
+        .catch(err => console.error('switchTab error:', err))
+    }, 2000)
 
     return () => {
       clearInterval(timer)

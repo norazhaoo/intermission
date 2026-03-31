@@ -1,5 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
+import stageView from '../../assets/images/stage-view.png'
+import vintageMap from '../../assets/images/vintage-map.png'
+import posterGeneric from '../../assets/images/poster-generic.png'
 import './index.scss'
 
 export default function SeatsDetail() {
@@ -19,7 +22,7 @@ export default function SeatsDetail() {
         <View className='flex items-center gap-4'>
           <Text className='font-label text-[#584140] dark:text-[#dfbfbd] text-[28rpx] hidden md:block'>MAJESTIC THEATRE（美琪大戏院）</Text>
           <View className='w-10 h-10 rounded-full overflow-hidden border-2 border-secondary'>
-            <Image className='w-full h-full' src='https://lh3.googleusercontent.com/aida-public/AB6AXuCZqH1wmaR6z-lt4t7sugoVTg38oyV2Zvb1tkS_IvB3lyJcoW019kFefP71ou7q7kBXh-3TTlyTxbPrh-i2YdcX61Gtjd3-PRTz8cFznuyCbA_HwQxkse9iFZVg9mawYJmWLeBoxpzHNLgBfWBGT61IwQCXb2dqYgYB-o9jSRC7yw0XkWd6IRvjOmINycLlRaQafJIaSngu_KEyy60ejmGrWuHcoDbINto7JcEBQlNr76LGOJA9cdPAVsLJWDTOGiwyKg2VGTL7V8g' mode='aspectFill' />
+            <Image className='w-full h-full' src={posterGeneric} mode='aspectFill' />
           </View>
         </View>
       </View>
@@ -32,7 +35,7 @@ export default function SeatsDetail() {
             <Image 
               className='w-full h-full object-cover transition-all duration-700' 
               style={{ filter: 'brightness(0.75)' }}
-              src='https://lh3.googleusercontent.com/aida-public/AB6AXuDBrxth_LcLaeGgobrxu4tyJBodpB_ZA27DvhxMTExAmDAiuDQzSFoT4VqE0uHvU4W0iTh4G2J6-0YMwgNs-9i9syJ15SWjNj7-1zxx8PY1cC0MvZvQfZ5U8OQyEeyVJekjoTqlScxUxXjJO9pAwWgFTZwL71OXhOPAbWgnCfCs5bUQylPOxErxWjerY9lQHY96pqb1vOlr61DvDkDeKsOUZVoOfiWTXrnnT_v2frXPEgJjFplF-8_mPZGahmXK6wnlvCFOPqEw-ik' 
+              src={stageView} 
               mode='aspectFill'
             />
             
@@ -129,7 +132,7 @@ export default function SeatsDetail() {
                 <View className='space-y-4'>
                   <View className='flex gap-6 items-start'>
                     <View className='flex-shrink-0 w-16 h-16 rounded-full overflow-hidden bg-surface-container-highest'>
-                      <Image className='w-full h-full' src='https://lh3.googleusercontent.com/aida-public/AB6AXuAIBDmrciHqGeHgm4AtjUWGtQogooS-VyUbO-ynsWQl-A1DWlzKTMYJXLXCm_PgXripyWxILVtH8tdtuEN40y_jGGMoM3OqO8cjr7UnW_qpXI2v7GQiUidNH9HCYlvhzRMB0fFL4Jb-1GrhBpZmb12ixRhZ5LsyC96SXub_g2Ri_daybthAmdJttTmcw1S1ed2SAH3tQLFg4MFAmyAr5TVdmpXqYbrK62nxBE1l8feeG6htYUiQnwduIe-8kRm2tQ8Cc5g1np2s2H8' mode='aspectFill' />
+                      <Image className='w-full h-full' src={posterGeneric} mode='aspectFill' />
                     </View>
                     <View className='border-l-[4rpx] border-outline-variant pl-6 py-2'>
                       <Text className='font-body italic text-on-surface-variant block text-[32rpx]'>"《歌剧魅影》在这个视角的视线极佳。能完美看到吊灯升起的诡异轨迹。"</Text>
@@ -151,7 +154,7 @@ export default function SeatsDetail() {
                 {/* Vintage-styled Seat Map */}
                 <View className='aspect-square bg-[#fcf3d8] rounded-sm p-4 relative overflow-hidden border border-outline-variant/30 min-h-[500rpx] flex flex-col'>
                   <View className='w-full h-full opacity-20 absolute inset-0' style={{ mixBlendMode: 'multiply' }}>
-                    <Image className='w-full h-full object-cover' src='https://lh3.googleusercontent.com/aida-public/AB6AXuC4OAlLHRz9oxpW3-0GOmzW7bEXWzPBcnYmh6mhFWUEwrKoxv5c8pvX1j9Dq8G8fpK0m7Y5zW_zW79XoApHqbDrVXcueQIRWIJHPihnPSmIllkxRdIKduFWBVOW4QTne6FMrIOVxgRbRdXmM9QEiC5K9BfNU_VD-QwczuwEsqC0pdaMMNnJBQJ468dw6M0w0YYlm5_e4PFhBpNL28s-ClvPq-G5o55euSD4CWPQj0_9Jg34cRKaXmMOaDSFORQltx9RX4DkjiK4PVI' mode='aspectFill' />
+                    <Image className='w-full h-full object-cover' src={vintageMap} mode='aspectFill' />
                   </View>
                   
                   <View className='relative z-10 w-full h-full flex flex-col items-center justify-center flex-1'>

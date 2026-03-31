@@ -9,23 +9,9 @@ function App({ children }: PropsWithChildren) {
     // 初始化种子数据
     initSeedData()
 
-    // 加载自定义字体 - Noto Serif
-    Taro.loadFontFace({
-      global: true,
-      family: 'Noto Serif',
-      source: 'url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap")',
-      success: () => console.log('Noto Serif loaded'),
-      fail: () => console.log('Noto Serif fallback to system serif')
-    })
-
-    // 加载自定义字体 - Manrope
-    Taro.loadFontFace({
-      global: true,
-      family: 'Manrope',
-      source: 'url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap")',
-      success: () => console.log('Manrope loaded'),
-      fail: () => console.log('Manrope fallback to system sans-serif')
-    })
+    // 微信小程序中 loadFontFace 需要绝对字体的 TTF/WOFF2 地址，而非 CSS 地址。
+    // 在这里取消加载外部 Google 字体，改用本地设备系统提供的高级替换字体（Serif / Sans-Serif）。
+    console.log('Using elegant local system fonts (Serif / Sans-serif) due to WeChat Webfont limitations.')
   })
 
   return children

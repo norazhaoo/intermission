@@ -1,5 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
+import stageView from '../../assets/images/stage-view.png'
 import './index.scss'
 
 export default function SeatsAdd() {
@@ -30,7 +31,7 @@ export default function SeatsAdd() {
           {/* Stage Image Background */}
           <View 
             className='absolute inset-0 bg-cover bg-center' 
-            style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuB_JeDNEQAlJkaIcbbrBLVZFW7XVYRTLTSPkLgr2Ay_ZqM2-kcXKiCP5KkQGZvLmctnUJVX0JONZt_ANcD47EO_tOg_wpLjltSvNSbaTINNzixjc4tQDYOgZU2JOBB_A_n7aFE6-43BzSBsv3Eha8QVKKccvBPXVnw9fHB2G04yB0zYUif_VPQ-ICerIjEBzgQByV8ugN4UzZbVV3a59EDJw-8tCsiojUV9G_SnIrSRLFpRi_X1vhUN29nwIRIKGQk8k3s6oMppHf4')" }}
+            style={{ backgroundImage: `url(${stageView})` }}
           ></View>
           
           {/* Theatrical Viewfinder Overlay */}
