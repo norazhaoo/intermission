@@ -9,7 +9,8 @@ export default function Shows() {
   const [query, setQuery] = useState('')
 
   useDidShow(() => {
-    const tabBar = Taro.getTabBar?.()
+    const page = Taro.getCurrentInstance().page
+    const tabBar = Taro.getTabBar?.(page) as any
     tabBar?.setSelected(3)
   })
 

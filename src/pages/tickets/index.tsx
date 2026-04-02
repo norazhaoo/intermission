@@ -5,7 +5,8 @@ import './index.scss'
 
 export default function Tickets() {
   useDidShow(() => {
-    const tabBar = Taro.getTabBar?.()
+    const page = Taro.getCurrentInstance().page
+    const tabBar = Taro.getTabBar?.(page) as any
     tabBar?.setSelected(1)
   })
 

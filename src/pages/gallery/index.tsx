@@ -15,7 +15,8 @@ export default function Gallery() {
   useDidShow(() => {
     setReviews(getReviews())
     // 同步 TabBar 状态
-    const tabBar = Taro.getTabBar?.()
+    const page = Taro.getCurrentInstance().page
+    const tabBar = Taro.getTabBar?.(page) as any
     tabBar?.setSelected(0)
   })
 

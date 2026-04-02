@@ -1,6 +1,11 @@
 import { Component } from 'react'
 import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
+import posterwallIcon from '../assets/images/icon/posterwall_icon.png'
+import ticketIcon from '../assets/images/icon/ticket_icon.png'
+import seatIcon from '../assets/images/icon/seat_icon.png'
+import showIcon from '../assets/images/icon/show_icon.png'
+import calendarIcon from '../assets/images/icon/calendar_icon.png'
 import './index.scss'
 
 interface TabItem {
@@ -11,11 +16,11 @@ interface TabItem {
 }
 
 const TAB_LIST: TabItem[] = [
-  { pagePath: '/pages/gallery/index', text: '画廊', icon: '🖼', iconFilled: '🖼' },
-  { pagePath: '/pages/tickets/index', text: '票根', icon: '🎫', iconFilled: '🎫' },
-  { pagePath: '/pages/seats/index', text: '座位', icon: '💺', iconFilled: '💺' },
-  { pagePath: '/pages/shows/index', text: '剧目', icon: '🎭', iconFilled: '🎭' },
-  { pagePath: '/pages/calendar/index', text: '日历', icon: '📅', iconFilled: '📅' }
+  { pagePath: '/pages/gallery/index', text: '画廊', icon: posterwallIcon, iconFilled: posterwallIcon },
+  { pagePath: '/pages/tickets/index', text: '票根', icon: ticketIcon, iconFilled: ticketIcon },
+  { pagePath: '/pages/seats/index', text: '座位', icon: seatIcon, iconFilled: seatIcon },
+  { pagePath: '/pages/shows/index', text: '剧目', icon: showIcon, iconFilled: showIcon },
+  { pagePath: '/pages/calendar/index', text: '日历', icon: calendarIcon, iconFilled: calendarIcon }
 ]
 
 interface CustomTabBarState {
@@ -31,7 +36,7 @@ export default class CustomTabBar extends Component<{}, CustomTabBarState> {
     this.setState({ selected: idx })
   }
 
-  switchTab(index: number, url: string) {
+  switchTab(url: string) {
     Taro.switchTab({ url })
   }
 
@@ -47,12 +52,14 @@ export default class CustomTabBar extends Component<{}, CustomTabBarState> {
               <View
                 key={tab.pagePath}
                 className={`custom-tab-bar__item ${isActive ? 'custom-tab-bar__item--active' : ''}`}
-                onClick={() => this.switchTab(index, tab.pagePath)}
+                onClick={() => this.switchTab(tab.pagePath)}
               >
                 <View className={`custom-tab-bar__icon-wrap ${isActive ? 'custom-tab-bar__icon-wrap--active' : ''}`}>
-                  <Text className='custom-tab-bar__icon'>
-                    {isActive ? tab.iconFilled : tab.icon}
-                  </Text>
+                  <Image 
+                    className={`custom-tab-bar__icon ${isActive ? 'custom-tab-bar__icon--active' : ''}`}
+                    src={isActive ? tab.iconFilled : tab.icon} 
+                     mode='aspectFit'
+                  />
                 </View>
                 <Text className={`custom-tab-bar__label ${isActive ? 'custom-tab-bar__label--active' : ''}`}>
                   {tab.text}
